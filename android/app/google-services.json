@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "186473037374",
+    "project_id": "raroacademy-budget-techninjas",
+    "storage_bucket": "raroacademy-budget-techninjas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186473037374:android:603185027099214651db6f",
+        "android_client_info": {
+          "package_name": "com.example.raroacademy_budget_techninjas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186473037374-nkm345v3hrd1plpi2871ksqfo4k362e2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClAOCYUmjbG1fHtyR05EeZy2sScY_kxcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186473037374-nkm345v3hrd1plpi2871ksqfo4k362e2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

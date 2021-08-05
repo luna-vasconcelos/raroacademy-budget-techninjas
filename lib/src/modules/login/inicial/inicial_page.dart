@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/login/login_controller.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/services/auth_service.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import 'inicial_page_controller.dart';
+
+class InicialPage extends StatefulWidget {
+  const InicialPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _InicialPageState createState() => _InicialPageState();
 }
 
-class _LoginPageState extends ModularState<LoginPage, LoginController> {
+class _InicialPageState extends ModularState<InicialPage, InicialPageController> {
   @override
   void initState() {
     // store.login(email: email, password: password);
@@ -23,7 +23,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
   @override
   Widget build(BuildContext context) {
     TextEditingController email = new TextEditingController();
-    TextEditingController password = new TextEditingController();
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -44,7 +43,31 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             child: SizedBox(
               width: 207.0,
               height: 122.0,
-              child: Text('Insira sua senha', style: TextStyles.cyanw400Roboto),
+              child: Text('Vamos Começar!', style: TextStyles.cyanw400Roboto),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 264,
+              left: 52
+            ),
+            child: Row(
+              children: [
+                Text(
+                  'Novo usuário?',
+                  style: TextStyle(fontSize: 16),
+                ),
+                TextButton(
+                    onPressed: () {
+                      Modular.to.pushNamed('/create');
+                    },
+                    child: Text(
+                      'Crie uma conta',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    )),
+              ],
             ),
           ),
           Padding(
@@ -59,31 +82,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: AppTextFormFieldWidget(
-                        controller: email, 
-                        hintText: 'Insira seu e-mail'
-                      ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: AppTextFormFieldWidget(
-                      controller: password,
-                      hintText: 'Senha',
-                      obscureText: true,
-                    ),
+                        controller: email, hintText: 'Insira seu e-mail'),
                   ),
                   Row(
                     children: <Widget>[
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'RECUPERAR SENHA',
-                          style: TextStyle(color: AppColors.roxo, fontSize: 13),
-                        ),
-                      ),
                       ElevatedButton(
                           onPressed: () {
-                            AuthService().login(email.text, password.text).then(
-                                (value) => Modular.to.pushNamed('/home'));
+                            Modular.to.pushNamed('/login');
                           },
                           child: Text('CONTINUAR'),
                           style: ButtonStyle(

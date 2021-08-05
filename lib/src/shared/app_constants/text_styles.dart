@@ -31,4 +31,27 @@ class TextStyles {
     fontSize: 48.0,
     color: AppColors.ciano,
   );
+
+  static const TextStyle montserrat700white = TextStyle(
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w700,
+    fontSize: 72.0,
+    color: Colors.white,
+    letterSpacing: -4,
+    shadows: <Shadow>[
+      Shadow(
+        offset: Offset(0, 4),
+        blurRadius: 15,
+        color: Color.fromARGB(25, 0, 0, 0),
+      )
+    ],
+  );
+
+  static const TextStyle montserrat400greysplash = TextStyle(
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
+    fontSize: 11.0,
+    color: AppColors.greySplash,
+    letterSpacing: 0.8,
+  );
 }

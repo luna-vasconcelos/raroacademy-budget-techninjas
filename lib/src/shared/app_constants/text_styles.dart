@@ -32,6 +32,7 @@ class TextStyles {
     color: AppColors.ciano,
   );
 
+
   static const TextStyle roxow500Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w500,
@@ -56,5 +57,25 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 14.0,
     color: Colors.black38,
+     static const TextStyle montserrat700white = TextStyle(
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w700,
+    fontSize: 72.0,
+    color: Colors.white,
+    letterSpacing: -4,
+    shadows: <Shadow>[
+      Shadow(
+        offset: Offset(0, 4),
+        blurRadius: 15,
+        color: Color.fromARGB(25, 0, 0, 0),
+      )
+    ],
   );
+
+  static const TextStyle montserrat400greysplash = TextStyle(
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.w400,
+    fontSize: 11.0,
+    color: AppColors.greySplash,
+    letterSpacing: 0.8,
 }

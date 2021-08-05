@@ -1,22 +1,30 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:raroacademy_budget_techninjas/modules/home/home_page.dart';
-import 'package:raroacademy_budget_techninjas/shared/app_constants/app_colors.dart';
-import 'package:raroacademy_budget_techninjas/shared/app_constants/text_styles.dart';
-import 'package:raroacademy_budget_techninjas/shared/app_widgets/app_textformfield_widget.dart';
-import 'package:raroacademy_budget_techninjas/shared/services/auth_service.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/login/login_controller.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/services/auth_service.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  TextEditingController email = new TextEditingController();
-  TextEditingController pass = new TextEditingController();
+class _LoginPageState extends ModularState<LoginPage, LoginController> {
+  @override
+  void initState() {
+    // store.login(email: email, password: password);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController email = new TextEditingController();
+    TextEditingController password = new TextEditingController();
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Stack(
@@ -56,7 +64,10 @@ class _LoginPageState extends State<LoginPage> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: AppTextFormFieldWidget(
-                        controller: pass, hintText: 'Senha', obscureText: true,),
+                      controller: password,
+                      hintText: 'Senha',
+                      obscureText: true,
+                    ),
                   ),
                   Row(
                     children: <Widget>[
@@ -69,11 +80,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            AuthService().login(
-                                    email.text,
-                                    pass.text)
-                                .then((value) => Navigator.pushReplacementNamed(
-                                    context, '/home'));
+                            AuthService().login(email.text, password.text).then(
+                                (value) => Modular.to.pushNamed('/home'));
                           },
                           child: Text('CONTINUAR'),
                           style: ButtonStyle(

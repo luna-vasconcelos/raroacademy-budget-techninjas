@@ -31,4 +31,30 @@ class TextStyles {
     fontSize: 48.0,
     color: AppColors.ciano,
   );
+
+  static const TextStyle roxow500Roboto = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w500,
+    fontSize: 20,
+    color: AppColors.roxo,
+  );
+
+  static const TextStyle blackw400Roboto = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 24.0,
+    color: Colors.black,
+  );
+  static const TextStyle black14w400Roboto = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 14.0,
+    color: Colors.black38,
+  );
+  static const TextStyle black14w500Roboto = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w500,
+    fontSize: 14.0,
+    color: Colors.black38,
+  );
 }

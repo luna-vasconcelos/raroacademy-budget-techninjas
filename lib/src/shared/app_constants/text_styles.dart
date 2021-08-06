@@ -28,10 +28,9 @@ class TextStyles {
   static const TextStyle cyanw400Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
-    fontSize: 48.0,
+    fontSize: 48,
     color: AppColors.ciano,
   );
-
 
   static const TextStyle roxow500Roboto = TextStyle(
     fontFamily: "Roboto",
@@ -57,7 +56,9 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 14.0,
     color: Colors.black38,
-     static const TextStyle montserrat700white = TextStyle(
+  );
+
+  static const TextStyle montserrat700white = TextStyle(
     fontFamily: "Montserrat",
     fontWeight: FontWeight.w700,
     fontSize: 72.0,
@@ -78,4 +79,5 @@ class TextStyles {
     fontSize: 11.0,
     color: AppColors.greySplash,
     letterSpacing: 0.8,
+  );
 }

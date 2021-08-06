@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -41,174 +43,172 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          'Saldo geral',
-                          style: TextStyles.roxow500Roboto,
-                        ),
+            child: Column(children: [
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                  child: ListTile(
+                    title: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Text(
+                        'Saldo geral',
+                        style: TextStyles.roxow500Roboto,
                       ),
-                      subtitle: Text(
-                        'R\$ 3.000,00',
-                        style: TextStyles.blackw400Roboto,
-                      ),
-                      trailing: Icon(
-                        Icons.remove_red_eye,
-                        color: AppColors.roxo,
-                        size: 28,
-                      ),
+                    ),
+                    subtitle: Text(
+                      'R\$ 3.000,00',
+                      style: TextStyles.blackw400Roboto,
+                    ),
+                    trailing: Icon(
+                      Icons.remove_red_eye,
+                      color: AppColors.roxo,
+                      size: 28,
                     ),
                   ),
                 ),
-                Card(
-                  elevation: 5,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8, bottom: 8),
-                        child: ListTile(
-                          title: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              'Dia a dia',
-                              style: TextStyles.roxow500Roboto,
-                            ),
-                          ),
-                          subtitle: Text(
-                            'R\$ 3.000,00',
-                            style: TextStyles.blackw400Roboto,
-                          ),
-                          trailing: Icon(
-                            Icons.remove_red_eye,
-                            color: AppColors.roxo,
-                            size: 28,
+              ),
+              Card(
+                elevation: 5,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8, bottom: 8),
+                      child: ListTile(
+                        title: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            'Dia a dia',
+                            style: TextStyles.roxow500Roboto,
                           ),
                         ),
+                        subtitle: Text(
+                          'R\$ 3.000,00',
+                          style: TextStyles.blackw400Roboto,
+                        ),
+                        trailing: Icon(
+                          Icons.remove_red_eye,
+                          color: AppColors.roxo,
+                          size: 28,
+                        ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          children: [
-                            Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 4),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Saídas',
-                                        style: TextStyles.black14w500Roboto,
-                                      ),
-                                      Text(
-                                        'R\$ 5.000,00',
-                                        style: TextStyles.black14w400Roboto,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Stack(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 4),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      height: 11,
-                                      width:
-                                          MediaQuery.of(context).size.width * 1,
+                                    Text(
+                                      'Saídas',
+                                      style: TextStyles.black14w500Roboto,
                                     ),
-                                    Container(
+                                    Text(
+                                      'R\$ 5.000,00',
+                                      style: TextStyles.black14w400Roboto,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 11,
+                                    width:
+                                        MediaQuery.of(context).size.width * 1,
+                                  ),
+                                  Container(
+                                    height: 11,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.45,
+                                    alignment: Alignment.centerLeft,
+                                    decoration: BoxDecoration(
+                                        color: AppColors.ciano,
+                                        borderRadius: BorderRadius.circular(4)),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 16),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 4),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Entradas',
+                                      style: TextStyles.black14w500Roboto,
+                                    ),
+                                    Text(
+                                      'R\$ 8.000,00',
+                                      style: TextStyles.black14w400Roboto,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Stack(
+                                children: [
+                                  Container(
                                       height: 11,
                                       width: MediaQuery.of(context).size.width *
-                                          0.45,
-                                      alignment: Alignment.centerLeft,
-                                      decoration: BoxDecoration(
-                                          color: AppColors.ciano,
-                                          borderRadius:
-                                              BorderRadius.circular(4)),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 16),
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 4),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Entradas',
-                                        style: TextStyles.black14w500Roboto,
-                                      ),
-                                      Text(
-                                        'R\$ 8.000,00',
-                                        style: TextStyles.black14w400Roboto,
-                                      ),
-                                    ],
+                                          1),
+                                  Container(
+                                    height: 11,
+                                    width:
+                                        MediaQuery.of(context).size.width * 1,
+                                    alignment: Alignment.centerLeft,
+                                    decoration: BoxDecoration(
+                                        color: AppColors.amarelo,
+                                        borderRadius: BorderRadius.circular(4)),
                                   ),
-                                ),
-                                Stack(
-                                  children: [
-                                    Container(
-                                        height: 11,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                1),
-                                    Container(
-                                      height: 11,
-                                      width:
-                                          MediaQuery.of(context).size.width * 1,
-                                      alignment: Alignment.centerLeft,
-                                      decoration: BoxDecoration(
-                                          color: AppColors.amarelo,
-                                          borderRadius:
-                                              BorderRadius.circular(4)),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-                Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          'Últimas transações',
-                          style: TextStyles.roxow500Roboto,
-                        ),
+              ),
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                  child: ListTile(
+                    title: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Text(
+                        'Últimas transações',
+                        style: TextStyles.roxow500Roboto,
                       ),
-                      subtitle: Text(
-                        'R\$ 364,00',
-                        style: TextStyles.blackw400Roboto,
-                      ),
-                      trailing: Icon(
-                        Icons.keyboard_arrow_right_outlined,
-                        color: AppColors.roxo,
-                        size: 35,
-                      ),
+                    ),
+                    subtitle: Text(
+                      'R\$ 364,00',
+                      style: TextStyles.blackw400Roboto,
+                    ),
+                    trailing: Icon(
+                      Icons.keyboard_arrow_right_outlined,
+                      color: AppColors.roxo,
+                      size: 35,
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  child: Text('NOVO CONTROLE'),
-                  onPressed: () {},
-                )
-              ],
-            ),
+              ),
+              ButtonWidget(
+                  buttonText: 'CONTINUAR',
+                  width: 182,
+                  height: 40,
+                  onpressed: () {
+                    Modular.to.pushNamed('/login/create_account');
+                  })
+            ]),
           ),
         ),
       ),

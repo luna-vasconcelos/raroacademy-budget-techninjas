@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_colors.dart';
 
 class TextStyles {
-  static const TextStyle inputtextMedium = TextStyle(
+  static TextStyle inputtextMedium = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w500,
     fontSize: 16,
@@ -11,57 +12,57 @@ class TextStyles {
     color: Colors.black,
   );
 
-  static const TextStyle subtitle3 = TextStyle(
+  static TextStyle subtitle3 = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w500,
-    fontSize: 14.0,
+    fontSize: 14,
     color: Colors.black,
   );
 
-  static const TextStyle titleappbar = TextStyle(
+  static TextStyle titleappbar = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
-    fontSize: 24.0,
+    fontSize: 24,
     color: Colors.white,
   );
 
-  static const TextStyle cyanw400Roboto = TextStyle(
+  static TextStyle cyanw400Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
     fontSize: 48,
     color: AppColors.ciano,
   );
 
-  static const TextStyle roxow500Roboto = TextStyle(
+  static TextStyle roxow500Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w500,
     fontSize: 20,
     color: AppColors.roxo,
   );
 
-  static const TextStyle blackw400Roboto = TextStyle(
+  static TextStyle blackw400Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
-    fontSize: 24.0,
+    fontSize: 24,
     color: Colors.black,
   );
-  static const TextStyle black14w400Roboto = TextStyle(
+  static TextStyle black14w400Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
-    fontSize: 14.0,
+    fontSize: 14,
     color: Colors.black38,
   );
-  static const TextStyle black14w500Roboto = TextStyle(
+  static TextStyle black14w500Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w500,
-    fontSize: 14.0,
+    fontSize: 14,
     color: Colors.black38,
   );
 
-  static const TextStyle montserrat700white = TextStyle(
+  static TextStyle montserrat700white = TextStyle(
     fontFamily: "Montserrat",
     fontWeight: FontWeight.w700,
-    fontSize: 72.0,
+    fontSize: 72,
     color: Colors.white,
     letterSpacing: -4,
     shadows: <Shadow>[
@@ -73,10 +74,10 @@ class TextStyles {
     ],
   );
 
-  static const TextStyle montserrat400greysplash = TextStyle(
+  static TextStyle montserrat400greysplash = TextStyle(
     fontFamily: "Montserrat",
     fontWeight: FontWeight.w400,
-    fontSize: 11.0,
+    fontSize: 11,
     color: AppColors.greySplash,
     letterSpacing: 0.8,
   );

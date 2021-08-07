@@ -24,8 +24,8 @@ class ButtonWidget extends StatelessWidget {
                 color: Colors.black26, offset: Offset(0, 6), blurRadius: 10)
           ],
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+            begin: Alignment(-1.0, -3.0),
+            end: Alignment(1.0, 4.0),
             stops: [0.05, 0.4],
             colors: [
               Color(0xFF44C2FD),

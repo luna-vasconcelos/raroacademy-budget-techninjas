@@ -3,18 +3,17 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
+import 'initial_page_controller.dart';
 
-import 'inicial_page_controller.dart';
-
-class InicialPage extends StatefulWidget {
-  const InicialPage({Key? key}) : super(key: key);
+class InitialPage extends StatefulWidget {
+  const InitialPage({Key? key}) : super(key: key);
 
   @override
-  _InicialPageState createState() => _InicialPageState();
+  _InitialPageState createState() => _InitialPageState();
 }
 
-class _InicialPageState
-    extends ModularState<InicialPage, InicialPageController> {
+class _InitialPageState
+    extends ModularState<InitialPage, InitialPageController> {
   @override
   void initState() {
     // store.login(email: email, password: password);

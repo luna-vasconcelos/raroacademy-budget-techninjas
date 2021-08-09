@@ -20,7 +20,7 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
     WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback(
       (timeStamp) {
         Future.delayed(Duration(seconds: 4)).then(
-          (value) => Modular.to.navigate("/inicial"),
+          (value) => Modular.to.navigate("/initial"),
         );
       },
     );

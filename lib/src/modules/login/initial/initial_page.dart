@@ -59,7 +59,7 @@ class _InitialPageState
                     ),
                     TextButton(
                         onPressed: () {
-                          Modular.to.pushNamed('/create');
+                          Modular.to.pushNamed('/login/create_account');
                         },
                         child: Text(
                           'Crie uma conta',

@@ -6,7 +6,6 @@ import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/c
 import 'package:raroacademy_budget_techninjas/src/modules/login/login_module.dart';
 import 'modules/login/initial/initial_page_module.dart';
 
-
 class AppModule extends Module {
   @override
   List<Bind<Object>> get binds => [
@@ -16,7 +15,7 @@ class AppModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ModuleRoute(Modular.initialRoute, module: SplashModule()),
-        ModuleRoute("/inicial", module: InitialPageModule()),
+        ModuleRoute("/initial", module: InitialPageModule()),
         ModuleRoute("/login", module: LoginModule()),
         ModuleRoute("/createaccount", module: CreateAccountModule()),
         ModuleRoute("/home", module: HomeModule()),

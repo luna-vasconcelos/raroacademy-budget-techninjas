@@ -6,6 +6,8 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_color
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -15,6 +17,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
+  final _formKey = GlobalKey<FormState>();
   @override
   void initState() {
     // store.login(email: email, password: password);
@@ -60,47 +63,57 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     ),
                 child: Container(
                   padding: EdgeInsets.only(top: 338, left: 48, right: 48),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: AppTextFormFieldWidget(
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: AppTextFormFieldWidget(
                             controller: email,
                             hintText: 'Insira seu e-mail',
-                            labelText: 'E-mail'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: AppTextFormFieldWidget(
-                          controller: password,
-                          labelText: 'Senha',
-                          obscureText: true,
-                        ),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'RECUPERAR SENHA',
-                              style: TextStyle(
-                                  color: AppColors.roxo, fontSize: 13),
-                            ),
+                            labelText: 'E-mail',
+                            validator: (value) => 
+                                  InputValidators().emailValidator(value),
                           ),
-                          ElevatedButton(
-                              onPressed: () {
-                                AuthService()
-                                    .login(email.text, password.text)
-                                    .then((value) =>
-                                        Modular.to.pushNamed('/home'));
-                              },
-                              child: Text('CONTINUAR'),
-                              style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      AppColors.roxo))),
-                        ],
-                      ),
-                    ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: AppTextFormFieldWidget(
+                            controller: password,
+                            labelText: 'Senha',
+                            obscureText: true,
+                            validator: (value) => 
+                                  InputValidators().passwordValidator(value),
+                          ),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'RECUPERAR SENHA',
+                                style: TextStyle(
+                                    color: AppColors.roxo, fontSize: 13),
+                              ),
+                            ),
+                            ElevatedButtonWidget(
+                              buttonText: 'CONTINUAR', 
+                              width: 114, 
+                              height: 36, 
+                              onpressed: (){
+                                if(_formKey.currentState!.validate()){
+                                  AuthService()
+                                      .login(email.text, password.text)
+                                      .then((value) =>
+                                          Modular.to.pushNamed('/home'));
+                                }
+                              }
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -1,8 +1,11 @@
+import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 import 'initial_page_controller.dart';
 
 class InitialPage extends StatefulWidget {
@@ -22,6 +25,7 @@ class _InitialPageState
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
     TextEditingController email = new TextEditingController();
 
     return SafeArea(
@@ -50,12 +54,18 @@ class _InitialPageState
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 264, left: 52),
+                padding: const EdgeInsets.only(
+                  top: 264, 
+                  left: 52
+                ),
                 child: Row(
                   children: [
                     Text(
                       'Novo usuário?',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.lightgrey
+                      ),
                     ),
                     TextButton(
                         onPressed: () {
@@ -65,6 +75,7 @@ class _InitialPageState
                           'Crie uma conta',
                           style: TextStyle(
                             fontSize: 16,
+                          color: AppColors.roxo
                           ),
                         )),
                   ],
@@ -72,32 +83,73 @@ class _InitialPageState
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    //top: 144.0,
-                    //left: 20,
-                    ),
-                child: Container(
-                  padding: EdgeInsets.only(top: 338, left: 48),
+                  top: 330,
+                  left: 48,
+                  right: 48
+                ),
+                child: Form(
+                  key: _formKey,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: AppTextFormFieldWidget(
-                            controller: email, hintText: 'Insira seu e-mail'),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          ElevatedButton(
-                              onPressed: () {
-                                Modular.to.pushNamed('/login');
-                              },
-                              child: Text('CONTINUAR'),
-                              style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      AppColors.roxo))),
-                        ],
-                      ),
-                    ],
+                        AppTextFormFieldWidget(
+                          controller: email,
+                          hintText: 'Insira seu e-mail',
+                          labelText: 'E-mail',
+                          validator: (value) =>
+                              InputValidators().emailValidator(value),
+                        ),
+                        SizedBox(height: 16,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              ElevatedButtonWidget(
+                                buttonText: 'CONTINUAR',
+                                width: 114,
+                                height: 36,
+                                onpressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                      Modular.to.pushNamed('/login');
+                                    }
+                                  },
+                              ),
+                            ],
+                          ),
+                        SizedBox(height: 40,),
+                        Text(
+                          'OU',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: AppColors.lightgrey
+                            ),
+                        ),
+                      ],
+                    ),
                   ),
+              ),
+              SizedBox(height: 9,),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 540,
+                  left: 45
+                ),
+                child: Column(
+                  children: [
+                    GoogleAuthButton(
+                      onPressed: (){},
+                      text: 'CONTINUAR COM O GOOGLE',
+                      style: AuthButtonStyle(
+                        borderRadius: 20,
+                      ),
+                    ),
+                    FacebookAuthButton(
+                      onPressed: (){},
+                      text: 'CONTINUAR COM O FACEBOOK',
+                      style: AuthButtonStyle(
+                        borderRadius: 20,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

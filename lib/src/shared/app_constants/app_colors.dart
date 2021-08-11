@@ -11,6 +11,7 @@ class AppColors {
   static Color amarelo = Color.fromRGBO(250, 199, 54, 1);
   static Color background = Colors.white;
   static Color greySplash = Color.fromRGBO(253, 253, 253, 1);
+  static Color lightgrey = Color.fromRGBO(0, 0, 0, 0.54);
 
   static var blueGradient = LinearGradient(
     colors: <Color>[

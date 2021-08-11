@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
+class ElevatedButtonWidget extends StatelessWidget {
   final String buttonText;
   final double width;
   final Function onpressed;
   final double height;
 
-  ButtonWidget({
+  ElevatedButtonWidget({
     required this.buttonText,
     required this.width,
     required this.height,

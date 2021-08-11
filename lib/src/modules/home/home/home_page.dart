@@ -203,6 +203,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
               ButtonWidget(
                   buttonText: '\u{FF0B}  NOVO CONTROLE',
                   width: 182,

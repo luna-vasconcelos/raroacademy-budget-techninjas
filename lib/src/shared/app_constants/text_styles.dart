@@ -66,6 +66,13 @@ class TextStyles {
     fontSize: 14,
     color: Colors.black38,
   );
+
+  static TextStyle createAccountTextStyleBottomNavigatorNumber = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.black,
+  );
   static TextStyle black14w500Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w500,

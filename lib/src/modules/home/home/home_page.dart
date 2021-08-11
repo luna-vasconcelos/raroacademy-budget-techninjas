@@ -205,7 +205,9 @@ class _HomePageState extends State<HomePage> {
               ),
 
               ElevatedButtonWidget(
-                  buttonText: '\u{FF0B}  NOVO CONTROLE',
+
+                  fontSize: 18,
+                   buttonText: '\u{FF0B}  NOVO CONTROLE',
                   width: 182,
                   height: 40,
                   onpressed: () {

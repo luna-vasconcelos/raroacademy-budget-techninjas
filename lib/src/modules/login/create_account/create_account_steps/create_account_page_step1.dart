@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/login/login_controller.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/services/auth_service.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class CreateAccountPageViewStep1 extends StatefulWidget {
+  const CreateAccountPageViewStep1({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _CreateAccountPageViewStep1State createState() =>
+      _CreateAccountPageViewStep1State();
 }
 
-class _LoginPageState extends ModularState<LoginPage, LoginController> {
+class _CreateAccountPageViewStep1State
+    extends State<CreateAccountPageViewStep1> {
   final _formKey = GlobalKey<FormState>();
   @override
   void initState() {
@@ -48,11 +45,18 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 top: 144,
                 left: 48,
                 child: SizedBox(
-                  width: 207.0,
-                  height: 122.0,
-                  child: Text(
-                    'Insira sua senha',
-                    style: TextStyles.cyanw400Roboto,
+                  width: 255.0,
+                  height: 118.0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Bem-Vindo!',
+                        style: TextStyles.cyanw400Roboto,
+                      ),
+                      Text("Por favor insira seus dados nos campos abaixo.")
+                    ],
                   ),
                 ),
               ),
@@ -86,31 +90,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             validator: (value) =>
                                 InputValidators().passwordValidator(value),
                           ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'RECUPERAR SENHA',
-                                style: TextStyle(
-                                    color: AppColors.roxo, fontSize: 13),
-                              ),
-                            ),
-                            ElevatedButtonWidget(
-                                fontSize: 18,
-                                buttonText: 'CONTINUAR',
-                                width: 114,
-                                height: 36,
-                                onpressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    AuthService()
-                                        .login(email.text, password.text)
-                                        .then((value) =>
-                                            Modular.to.pushNamed('/home'));
-                                  }
-                                }),
-                          ],
                         ),
                       ],
                     ),

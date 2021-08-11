@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: DrawerWidget(),
       appBar: AppBar(
         title: Text(
           'Olá, José',
@@ -201,8 +203,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
               ElevatedButtonWidget(
-                  buttonText: 'CONTINUAR',
+                  buttonText: '\u{FF0B}  NOVO CONTROLE',
                   width: 182,
                   height: 40,
                   onpressed: () {

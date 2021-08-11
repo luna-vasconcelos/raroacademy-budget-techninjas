@@ -202,6 +202,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               ElevatedButtonWidget(
+                  fontSize: 18,
                   buttonText: 'CONTINUAR',
                   width: 182,
                   height: 40,

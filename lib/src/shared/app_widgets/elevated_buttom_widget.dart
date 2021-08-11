@@ -4,19 +4,27 @@ class ElevatedButtonWidget extends StatelessWidget {
   final String buttonText;
   final double width;
   final Function onpressed;
+  final double fontSize;
   final double height;
+  final Widget? sufixicon;
+  final Widget? prefixicon;
+  final double? paddingValue;
 
   ElevatedButtonWidget({
     required this.buttonText,
     required this.width,
     required this.height,
     required this.onpressed,
+    this.sufixicon,
+    this.prefixicon,
+    required this.fontSize,
+    this.paddingValue,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -37,11 +45,14 @@ class ElevatedButtonWidget extends StatelessWidget {
         ),
         child: ElevatedButton(
           style: ButtonStyle(
+            padding:
+                MaterialStateProperty.all(EdgeInsets.all(paddingValue ?? 12)),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
             ),
+
             minimumSize: MaterialStateProperty.all(Size(width, height)),
             backgroundColor: MaterialStateProperty.all(Colors.transparent),
             // elevation: MaterialStateProperty.all(3),
@@ -51,17 +62,24 @@ class ElevatedButtonWidget extends StatelessWidget {
             onpressed();
           },
           child: Padding(
-            padding: const EdgeInsets.only(
+            padding: EdgeInsets.only(
               top: 8,
               bottom: 8,
             ),
-            child: Text(
-              buttonText,
-              style: TextStyle(
-                fontSize: 18,
-                // fontWeight: FontWeight.w700,
-                color: Colors.white,
-              ),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                prefixicon != null ? prefixicon! : Text(""),
+                Text(
+                  buttonText,
+                  style: TextStyle(
+                    fontSize: fontSize,
+                    // fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                sufixicon != null ? sufixicon! : Text(""),
+              ],
             ),
           ),
         ),

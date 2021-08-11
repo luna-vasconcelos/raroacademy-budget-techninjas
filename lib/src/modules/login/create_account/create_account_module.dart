@@ -18,7 +18,7 @@ class CreateAccountModule extends Module {
             child: (context, args) => CreateAccountPage(),
             children: [
               ChildRoute('/pageStep1',
-                  child: (_, __) => CreateAccountPageviewStep1()),
+                  child: (_, __) => CreateAccountPageViewStep1()),
               ChildRoute('/pageStep2',
                   child: (_, __) => CreateAccountPageviewStep2()),
               ChildRoute('/pageStep3',

@@ -54,18 +54,13 @@ class _InitialPageState
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 264, 
-                  left: 52
-                ),
+                padding: const EdgeInsets.only(top: 264, left: 52),
                 child: Row(
                   children: [
                     Text(
                       'Novo usuário?',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: AppColors.lightgrey
-                      ),
+                      style:
+                          TextStyle(fontSize: 16, color: AppColors.lightgrey),
                     ),
                     TextButton(
                         onPressed: () {
@@ -73,77 +68,72 @@ class _InitialPageState
                         },
                         child: Text(
                           'Crie uma conta',
-                          style: TextStyle(
-                            fontSize: 16,
-                          color: AppColors.roxo
-                          ),
+                          style: TextStyle(fontSize: 16, color: AppColors.roxo),
                         )),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 330,
-                  left: 48,
-                  right: 48
-                ),
+                padding: const EdgeInsets.only(top: 330, left: 48, right: 48),
                 child: Form(
                   key: _formKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                        AppTextFormFieldWidget(
-                          controller: email,
-                          hintText: 'Insira seu e-mail',
-                          labelText: 'E-mail',
-                          validator: (value) =>
-                              InputValidators().emailValidator(value),
-                        ),
-                        SizedBox(height: 16,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              ElevatedButtonWidget(
-                                buttonText: 'CONTINUAR',
-                                width: 114,
-                                height: 36,
-                                onpressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                      Modular.to.pushNamed('/login');
-                                    }
-                                  },
-                              ),
-                            ],
+                      AppTextFormFieldWidget(
+                        controller: email,
+                        hintText: 'Insira seu e-mail',
+                        labelText: 'E-mail',
+                        validator: (value) =>
+                            InputValidators().emailValidator(value),
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          ElevatedButtonWidget(
+                            fontSize: 18,
+                            buttonText: 'CONTINUAR',
+                            width: 114,
+                            height: 36,
+                            onpressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                Modular.to.pushNamed('/login');
+                              }
+                            },
                           ),
-                        SizedBox(height: 40,),
-                        Text(
-                          'OU',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.lightgrey
-                            ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        'OU',
+                        style:
+                            TextStyle(fontSize: 16, color: AppColors.lightgrey),
+                      ),
+                    ],
                   ),
-              ),
-              SizedBox(height: 9,),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 540,
-                  left: 45
                 ),
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 540, left: 45),
                 child: Column(
                   children: [
                     GoogleAuthButton(
-                      onPressed: (){},
+                      onPressed: () {},
                       text: 'CONTINUAR COM O GOOGLE',
                       style: AuthButtonStyle(
                         borderRadius: 20,
                       ),
                     ),
                     FacebookAuthButton(
-                      onPressed: (){},
+                      onPressed: () {},
                       text: 'CONTINUAR COM O FACEBOOK',
                       style: AuthButtonStyle(
                         borderRadius: 20,

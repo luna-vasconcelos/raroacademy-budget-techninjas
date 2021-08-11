@@ -14,8 +14,7 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute(Modular.initialRoute,
-            module: CreateAccountModule() /*SplashModule()*/),
+        ModuleRoute(Modular.initialRoute, module: SplashModule()),
         ModuleRoute("/initial", module: InitialPageModule()),
         ModuleRoute("/login", module: LoginModule()),
         ModuleRoute("/createaccount", module: CreateAccountModule()),

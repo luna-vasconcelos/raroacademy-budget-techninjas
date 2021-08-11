@@ -73,8 +73,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             controller: email,
                             hintText: 'Insira seu e-mail',
                             labelText: 'E-mail',
-                            validator: (value) => 
-                                  InputValidators().emailValidator(value),
+                            validator: (value) =>
+                                InputValidators().emailValidator(value),
                           ),
                         ),
                         Padding(
@@ -83,8 +83,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             controller: password,
                             labelText: 'Senha',
                             obscureText: true,
-                            validator: (value) => 
-                                  InputValidators().passwordValidator(value),
+                            validator: (value) =>
+                                InputValidators().passwordValidator(value),
                           ),
                         ),
                         Row(
@@ -98,18 +98,18 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                               ),
                             ),
                             ElevatedButtonWidget(
-                              buttonText: 'CONTINUAR', 
-                              width: 114, 
-                              height: 36, 
-                              onpressed: (){
-                                if(_formKey.currentState!.validate()){
-                                  AuthService()
-                                      .login(email.text, password.text)
-                                      .then((value) =>
-                                          Modular.to.pushNamed('/home'));
-                                }
-                              }
-                            ),
+                                fontSize: 18,
+                                buttonText: 'CONTINUAR',
+                                width: 114,
+                                height: 36,
+                                onpressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    AuthService()
+                                        .login(email.text, password.text)
+                                        .then((value) =>
+                                            Modular.to.pushNamed('/home'));
+                                  }
+                                }),
                           ],
                         ),
                       ],

@@ -26,12 +26,26 @@ class TextStyles {
     color: Colors.white,
   );
 
+  static TextStyle titledrawer = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w700,
+    fontSize: 26,
+    color: Colors.white,
+  );
+
   static TextStyle cyanw400Roboto = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
     fontSize: 48,
     color: AppColors.ciano,
   );
+
+  static TextStyle roxow400Roboto = TextStyle(
+      fontFamily: "Roboto",
+      fontWeight: FontWeight.w400,
+      fontSize: 18,
+      color: AppColors.roxo,
+      letterSpacing: 0.15);
 
   static TextStyle roxow500Roboto = TextStyle(
     fontFamily: "Roboto",
@@ -64,6 +78,19 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 14,
     color: Colors.black38,
+  );
+  static TextStyle tittlecarddrawer = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.black54,
+  );
+  static TextStyle subtittlecarddrawer = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w600,
+    fontSize: 17,
+    color: Colors.black,
+    letterSpacing: 0.15,
   );
 
   static TextStyle montserrat700white = TextStyle(

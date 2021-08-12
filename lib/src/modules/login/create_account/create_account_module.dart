@@ -5,6 +5,7 @@ import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/c
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_steps/create_account_page_step2.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_steps/create_account_page_step3.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_steps/create_account_page_step4.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_update_page.dart';
 
 class CreateAccountModule extends Module {
   @override
@@ -25,6 +26,10 @@ class CreateAccountModule extends Module {
                   child: (_, __) => CreateAccountPageviewStep3()),
               ChildRoute('/pageStep4',
                   child: (_, __) => CreateAccountPageviewStep4()),
+              ChildRoute(
+                '/updateAccount',
+                child: (_, __) => CreateAccountUpdate(),
+              ),
             ]),
       ];
 }

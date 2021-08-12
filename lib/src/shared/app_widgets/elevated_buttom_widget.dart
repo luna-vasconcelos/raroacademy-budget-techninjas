@@ -23,64 +23,62 @@ class ElevatedButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black26, offset: Offset(0, 6), blurRadius: 10)
+    return Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(color: Colors.black26, offset: Offset(0, 6), blurRadius: 10)
+        ],
+        gradient: LinearGradient(
+          begin: Alignment(-1.0, -3.0),
+          end: Alignment(1.0, 4.0),
+          stops: [0.05, 0.4],
+          colors: [
+            Color(0xFF44C2FD),
+            Color(0xFF343090),
           ],
-          gradient: LinearGradient(
-            begin: Alignment(-1.0, -3.0),
-            end: Alignment(1.0, 4.0),
-            stops: [0.05, 0.4],
-            colors: [
-              Color(0xFF44C2FD),
-              Color(0xFF343090),
-            ],
-          ),
-          color: Colors.deepPurple.shade300,
-          borderRadius: BorderRadius.circular(24),
         ),
-        child: ElevatedButton(
-          style: ButtonStyle(
-            padding:
-                MaterialStateProperty.all(EdgeInsets.all(paddingValue ?? 12)),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
-              ),
+        color: Colors.deepPurple.shade300,
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          padding:
+              MaterialStateProperty.all(EdgeInsets.all(paddingValue ?? 12)),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
             ),
-
-            minimumSize: MaterialStateProperty.all(Size(width, height)),
-            backgroundColor: MaterialStateProperty.all(Colors.transparent),
-            // elevation: MaterialStateProperty.all(3),
-            shadowColor: MaterialStateProperty.all(Colors.transparent),
           ),
-          onPressed: () {
-            onpressed();
-          },
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 8,
-              bottom: 8,
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                prefixicon != null ? prefixicon! : Text(""),
-                Text(
-                  buttonText,
-                  style: TextStyle(
-                    fontSize: fontSize,
-                    // fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
+
+          minimumSize: MaterialStateProperty.all(Size(height, width)),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          // elevation: MaterialStateProperty.all(3),
+          shadowColor: MaterialStateProperty.all(Colors.transparent),
+        ),
+        onPressed: () {
+          onpressed();
+        },
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: 8,
+            bottom: 8,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              prefixicon != null ? prefixicon! : Text(""),
+              Text(
+                buttonText,
+                style: TextStyle(
+                  fontSize: fontSize,
+                  // fontWeight: FontWeight.w700,
+                  color: Colors.white,
                 ),
-                sufixicon != null ? sufixicon! : Text(""),
-              ],
-            ),
+              ),
+              sufixicon != null ? sufixicon! : Text(""),
+            ],
           ),
         ),
       ),

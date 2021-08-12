@@ -75,7 +75,7 @@ class _CreateAccountPageState
                   padding: const EdgeInsets.only(right: 0),
                   child: ElevatedButtonWidget(
                       fontSize: 14,
-                      buttonText: "CONTINUAR ",
+                      buttonText: "CONTINUAR  ",
                       width: 116,
                       height: 32,
                       paddingValue: 0,

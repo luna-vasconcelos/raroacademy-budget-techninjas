@@ -9,6 +9,7 @@ class ElevatedButtonWidget extends StatelessWidget {
   final Widget? sufixicon;
   final Widget? prefixicon;
   final double? paddingValue;
+  final MainAxisAlignment? mainAlign;
 
   ElevatedButtonWidget({
     required this.buttonText,
@@ -19,6 +20,7 @@ class ElevatedButtonWidget extends StatelessWidget {
     this.prefixicon,
     required this.fontSize,
     this.paddingValue,
+    this.mainAlign,
   });
 
   @override
@@ -44,8 +46,7 @@ class ElevatedButtonWidget extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ButtonStyle(
-          padding:
-              MaterialStateProperty.all(EdgeInsets.all(paddingValue ?? 12)),
+          padding: MaterialStateProperty.all(EdgeInsets.all(paddingValue ?? 0)),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24),
@@ -60,26 +61,21 @@ class ElevatedButtonWidget extends StatelessWidget {
         onPressed: () {
           onpressed();
         },
-        child: Padding(
-          padding: EdgeInsets.only(
-            top: 8,
-            bottom: 8,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              prefixicon != null ? prefixicon! : Text(""),
-              Text(
-                buttonText,
-                style: TextStyle(
-                  fontSize: fontSize,
-                  // fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
+        child: Row(
+          mainAxisAlignment: mainAlign ?? MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            prefixicon != null ? prefixicon! : Text(""),
+            Text(
+              buttonText,
+              style: TextStyle(
+                fontSize: fontSize,
+                // fontWeight: FontWeight.w700,
+                color: Colors.white,
               ),
-              sufixicon != null ? sufixicon! : Text(""),
-            ],
-          ),
+            ),
+            sufixicon != null ? sufixicon! : Text("")
+          ],
         ),
       ),
     );

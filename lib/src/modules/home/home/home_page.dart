@@ -213,14 +213,6 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      ListView.builder(
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text('3'),
-                          );
-                        },
-                      ),
                     ],
                   ),
                 ),

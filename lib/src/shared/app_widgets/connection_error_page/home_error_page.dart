@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu.dart/drawer_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu/drawer_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 
 class HomeErrorPage extends StatelessWidget {

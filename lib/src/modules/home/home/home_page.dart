@@ -182,35 +182,61 @@ class _HomePageState extends State<HomePage> {
                 elevation: 5,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8, bottom: 8),
-                  child: ListTile(
-                    title: Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Text(
-                        'Últimas transações',
-                        style: TextStyles.roxow500Roboto,
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            'Últimas transações',
+                            style: TextStyles.roxow500Roboto,
+                          ),
+                        ),
+                        subtitle: Text(
+                          'R\$ 364,00',
+                          style: TextStyles.blackw400Roboto,
+                        ),
+                        trailing: Icon(
+                          Icons.keyboard_arrow_right_outlined,
+                          color: AppColors.roxo,
+                          size: 35,
+                        ),
                       ),
-                    ),
-                    subtitle: Text(
-                      'R\$ 364,00',
-                      style: TextStyles.blackw400Roboto,
-                    ),
-                    trailing: Icon(
-                      Icons.keyboard_arrow_right_outlined,
-                      color: AppColors.roxo,
-                      size: 35,
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, bottom: 20),
+                        child: Row(
+                          children: [
+                            Text(
+                              'No momento',
+                              style: TextStyles.subtitle2,
+                            ),
+                          ],
+                        ),
+                      ),
+                      ListView.builder(
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text('3'),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
-              ElevatedButtonWidget(
-
-                  fontSize: 18,
-                   buttonText: '\u{FF0B}  NOVO CONTROLE',
-                  width: 182,
-                  height: 40,
-                  onpressed: () {
-                    Modular.to.pushNamed('/login/create_account');
-                  })
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: ElevatedButtonWidget(
+                    fontSize: 16,
+                    buttonText: '   \u{FF0B}  NOVO CONTROLE',
+                    width: 183,
+                    height: 40,
+                    paddingValue: 0,
+                    onpressed: () {
+                      Modular.to.pushNamed('/login/create_account');
+                    }),
+              )
             ]),
           ),
         ),

@@ -18,6 +18,12 @@ class TextStyles {
     fontSize: 14,
     color: Colors.black,
   );
+  static TextStyle subtitle2 = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+    color: Color(0xFFC4C4C4),
+  );
 
   static TextStyle titleappbar = TextStyle(
     fontFamily: "Roboto",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 
@@ -42,7 +43,9 @@ class DrawerWidget extends StatelessWidget {
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.all(0),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Modular.to.pushNamed('/create_account/updateAccount');
+                      },
                       child: Text(
                         'Cadastro',
                         style: TextStyles.subtittlecarddrawer,

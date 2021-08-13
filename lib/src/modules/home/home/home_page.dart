@@ -226,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                     height: 40,
                     paddingValue: 0,
                     onpressed: () {
-                      Modular.to.pushNamed('/login/create_account');
+                      Modular.to.pushNamed('/user');
                     }),
               )
             ]),

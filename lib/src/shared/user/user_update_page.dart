@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 
 class UserUpdatePage extends StatefulWidget {
   const UserUpdatePage({Key? key}) : super(key: key);
@@ -13,12 +14,26 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Cadastro',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 24,
-            fontWeight: FontWeight.w400,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          padding: EdgeInsets.only(top: 20, left: 20),
+          alignment: Alignment.topLeft,
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+          iconSize: 30,
+        ),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 75,
+          ),
+          child: Text(
+            'Cadastro',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 26,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
         toolbarHeight: 165,
@@ -29,8 +44,41 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
                   end: Alignment.bottomRight,
                   colors: <Color>[AppColors.ciano, AppColors.roxo])),
         ),
-        centerTitle: true,
         elevation: 0.0,
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width * 0.98,
+        height: MediaQuery.of(context).size.height * 0.98,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+            child: Card(
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(35),
+                child: Column(
+                  children: [
+                    AppTextFormFieldWidget(
+                      labelText: 'Nome',
+                    ),
+                    AppTextFormFieldWidget(
+                      labelText: 'CPF',
+                    ),
+                    AppTextFormFieldWidget(
+                      labelText: 'E-mail',
+                    ),
+                    AppTextFormFieldWidget(
+                      labelText: 'Celular',
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.18,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 
-class ChangeProfileDrawerMenu extends StatefulWidget {
-  ChangeProfileDrawerMenu({Key? key}) : super(key: key);
+class UserUpdatePage extends StatefulWidget {
+  const UserUpdatePage({Key? key}) : super(key: key);
 
   @override
-  _ChangeProfileDrawerMenuState createState() =>
-      _ChangeProfileDrawerMenuState();
+  _UserUpdatePageState createState() => _UserUpdatePageState();
 }
 
-class _ChangeProfileDrawerMenuState extends State<ChangeProfileDrawerMenu> {
+class _UserUpdatePageState extends State<UserUpdatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

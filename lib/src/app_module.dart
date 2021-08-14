@@ -4,6 +4,7 @@ import 'package:raroacademy_budget_techninjas/src/modules/authentication/splash_
 import 'package:raroacademy_budget_techninjas/src/modules/home/home/home_module.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_module.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/login_module.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/user/user_module.dart';
 import 'modules/login/initial/initial_page_module.dart';
 
 class AppModule extends Module {
@@ -19,5 +20,6 @@ class AppModule extends Module {
         ModuleRoute("/login", module: LoginModule()),
         ModuleRoute("/createaccount", module: CreateAccountModule()),
         ModuleRoute("/home", module: HomeModule()),
+        ModuleRoute("/user", module: UserModule()),
       ];
 }

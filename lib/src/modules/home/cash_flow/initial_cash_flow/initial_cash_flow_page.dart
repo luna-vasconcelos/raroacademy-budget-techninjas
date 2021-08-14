@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 
-class InitialCasfFlowPage extends StatefulWidget {
-  const InitialCasfFlowPage({ Key? key }) : super(key: key);
+class InitialCashFlowPage extends StatefulWidget {
+  const InitialCashFlowPage({ Key? key }) : super(key: key);
 
   @override
-  _InitialCasfFlowPageState createState() => _InitialCasfFlowPageState();
+  _InitialCashFlowPageState createState() => _InitialCashFlowPageState();
 }
 
-class _InitialCasfFlowPageState extends State<InitialCasfFlowPage> {
+class _InitialCashFlowPageState extends State<InitialCashFlowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class _InitialCasfFlowPageState extends State<InitialCasfFlowPage> {
             fontWeight: FontWeight.w400,
           ),
         ),
-        toolbarHeight: 165,
+        toolbarHeight: 189,
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -31,7 +31,50 @@ class _InitialCasfFlowPageState extends State<InitialCasfFlowPage> {
         ),
         centerTitle: true,
         elevation: 0.0,
+        leading: IconButton(
+          onPressed: (){}, 
+          icon: Icon(
+            Icons.arrow_back
+          ),
+        ),
+        actions: [
+          Icon(
+            Icons.arrow_drop_down
+          ),
+        ],
+        bottom: PreferredSize(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                  onPressed: (){}, 
+                  child: Text(
+                    'Entradas'
+                  )
+                ),
+                Text('|'),
+                TextButton(
+                  onPressed: (){}, 
+                  child: Text(
+                    'Saídas'
+                  )
+                ),
+                Text('|'),
+                TextButton(
+                  onPressed: (){}, 
+                  child: Text(
+                    'Todos'
+                  )
+                ),
+              ],
+            ),
+          ), 
+          preferredSize: Size.fromHeight(45),
+        ),
       ),
+      //body: ,
     );
   }
 }

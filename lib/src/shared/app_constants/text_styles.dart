@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_colors.dart';
 
@@ -10,6 +9,14 @@ class TextStyles {
     fontSize: 16,
     letterSpacing: 0.15,
     color: Colors.black,
+  );
+  static TextStyle blackRoboto16400 = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    letterSpacing: 0.15,
+    color: Color.fromRGBO(0, 0, 0, 0.54),
+    height: 1.5,
   );
 
   static TextStyle subtitle3 = TextStyle(
@@ -120,5 +127,20 @@ class TextStyles {
     fontSize: 11,
     color: AppColors.greySplash,
     letterSpacing: 0.8,
+  );
+
+  static TextStyle h6HeadCreateAccount = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+    color: AppColors.roxo,
+    letterSpacing: 0.15,
+    height: 1.5,
+  );
+  static TextStyle h3HeadCreateAccount = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 48,
+    color: AppColors.ciano,
   );
 }

@@ -5,12 +5,10 @@ class AuthService {
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  Future <void> login(String email, String password) async {
+  Future<void> login(String email, String password) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      
-    }
+    } on FirebaseAuthException catch (e) {}
   }
 }

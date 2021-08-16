@@ -5,7 +5,6 @@ import 'package:raroacademy_budget_techninjas/src/modules/login/services/auth_se
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 

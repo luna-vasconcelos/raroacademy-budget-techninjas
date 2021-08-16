@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 
 class UserUpdatePage extends StatefulWidget {

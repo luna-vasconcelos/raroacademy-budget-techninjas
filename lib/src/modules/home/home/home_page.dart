@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Modular.to.pushNamed('/cash_flow/initial_cash_flow/initial_cash_flow');
+                  Modular.to.pushNamed('/home/cash_flow');
                 },
                 child: Card(
                   elevation: 5,

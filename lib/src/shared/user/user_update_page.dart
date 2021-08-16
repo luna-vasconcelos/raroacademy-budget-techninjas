@@ -46,39 +46,42 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
           ),
           elevation: 0.0,
         ),
-        body: Container(
-          width: MediaQuery.of(context).size.width * 0.98,
-          height: MediaQuery.of(context).size.height * 0.98,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-              child: Card(
-                elevation: 5,
-                child: Padding(
-                  padding: const EdgeInsets.all(35),
-                  child: Column(
-                    children: [
-                      AppTextFormFieldWidget(
-                        labelText: 'Nome',
+        body: Flex(
+          direction: Axis.vertical,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+                child: Card(
+                  elevation: 5,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(35),
+                      child: Column(
+                        children: [
+                          AppTextFormFieldWidget(
+                            labelText: 'Nome',
+                          ),
+                          AppTextFormFieldWidget(
+                            labelText: 'CPF',
+                          ),
+                          AppTextFormFieldWidget(
+                            labelText: 'E-mail',
+                          ),
+                          AppTextFormFieldWidget(
+                            labelText: 'Celular',
+                          ),
+                        ],
                       ),
-                      AppTextFormFieldWidget(
-                        labelText: 'CPF',
-                      ),
-                      AppTextFormFieldWidget(
-                        labelText: 'E-mail',
-                      ),
-                      AppTextFormFieldWidget(
-                        labelText: 'Celular',
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.18,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
+            SizedBox(
+              height: 35,
+            ),
+          ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: InkWell(
@@ -117,5 +120,6 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
                   fontWeight: FontWeight.w500),
             )),
           ),
+        ));
   }
 }

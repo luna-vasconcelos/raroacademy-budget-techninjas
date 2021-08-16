@@ -1,12 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_module.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_steps/create_account_page_step1.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_steps/create_account_page_step3.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_steps/create_account_page_step4.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_user_model.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'create_account_steps/create_account_page_step2.dart';
@@ -32,9 +29,9 @@ class _CreateAccountPageState
         },
         children: [
           CreateAccountPageViewStep1(),
-          CreateAccountPageviewStep2(),
-          CreateAccountPageviewStep3(),
-          CreateAccountPageviewStep4(),
+          CreateAccountPageViewStep2(),
+          CreateAccountPageViewStep3(),
+          CreateAccountPageViewStep4(),
         ],
       ),
       bottomNavigationBar: Padding(
@@ -71,10 +68,14 @@ class _CreateAccountPageState
                           ),
                         ),
                         onPressed: () {
-                          controller.pageViewController.previousPage(
-                            duration: Duration(milliseconds: 400),
-                            curve: Curves.easeInOut,
-                          );
+                          if (currentPage == 0) {
+                            //Modular.to.popAndPushNamed('/initial');
+                          } else {
+                            controller.pageViewController.previousPage(
+                              duration: Duration(milliseconds: 400),
+                              curve: Curves.easeInOut,
+                            );
+                          }
                         },
                       ),
                     ),
@@ -95,10 +96,14 @@ class _CreateAccountPageState
                             size: 18,
                           ),
                           onpressed: () {
-                            controller.pageViewController.nextPage(
-                              duration: Duration(milliseconds: 400),
-                              curve: Curves.easeInOut,
-                            );
+                            if (currentPage == 4) {
+                              //Modular.to.popAndPushNamed('');
+                            } else {
+                              controller.pageViewController.nextPage(
+                                duration: Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                              );
+                            }
                           }),
                     )
                   ],

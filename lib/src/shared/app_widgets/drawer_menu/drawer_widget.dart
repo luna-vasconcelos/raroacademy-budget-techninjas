@@ -44,7 +44,7 @@ class DrawerWidget extends StatelessWidget {
                         padding: EdgeInsets.all(0),
                       ),
                       onPressed: () {
-                        Modular.to.pushNamed('/create_account/updateAccount');
+                        Modular.to.pushNamed('/user');
                       },
                       child: Text(
                         'Cadastro',

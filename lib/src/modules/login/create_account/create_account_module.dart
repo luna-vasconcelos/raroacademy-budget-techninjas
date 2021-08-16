@@ -21,10 +21,10 @@ class CreateAccountModule extends Module {
         ChildRoute('/pageStep1',
             child: (_, __) => CreateAccountPageViewStep1()),
         ChildRoute('/pageStep2',
-            child: (_, __) => CreateAccountPageviewStep2()),
+            child: (_, __) => CreateAccountPageViewStep2()),
         ChildRoute('/pageStep3',
-            child: (_, __) => CreateAccountPageviewStep3()),
+            child: (_, __) => CreateAccountPageViewStep3()),
         ChildRoute('/pageStep4',
-            child: (_, __) => CreateAccountPageviewStep4()),
+            child: (_, __) => CreateAccountPageViewStep4()),
       ];
 }

@@ -23,8 +23,8 @@ class _CreateAccountPageViewStep1State
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController email = new TextEditingController();
-    TextEditingController password = new TextEditingController();
+    TextEditingController emailCreate = new TextEditingController();
+    TextEditingController passwordCreate = new TextEditingController();
 
     return SafeArea(
       child: Scaffold(
@@ -53,46 +53,43 @@ class _CreateAccountPageViewStep1State
                     children: [
                       Text(
                         'Bem-Vindo!',
-                        style: TextStyles.cyanw400Roboto,
+                        style: TextStyles.h3HeadCreateAccount,
                       ),
-                      Text("Por favor insira seus dados nos campos abaixo.")
+                      Text(
+                        "Por favor insira seus dados nos campos abaixo.",
+                        style: TextStyles.h6HeadCreateAccount,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    //top: 144.0,
-                    //left: 20,
-                    ),
-                child: Container(
-                  padding: EdgeInsets.only(top: 338, left: 48, right: 48),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: AppTextFormFieldWidget(
-                            controller: email,
-                            hintText: 'Insira seu e-mail',
-                            labelText: 'E-mail',
-                            validator: (value) =>
-                                InputValidators().emailValidator(value),
-                          ),
+              Container(
+                padding: EdgeInsets.only(top: 419, left: 48, right: 48),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: AppTextFormFieldWidget(
+                          controller: emailCreate,
+                          hintText: 'Insira seu e-mail',
+                          labelText: 'E-mail',
+                          validator: (value) =>
+                              InputValidators().emailValidator(value),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: AppTextFormFieldWidget(
-                            controller: password,
-                            labelText: 'Senha',
-                            obscureText: true,
-                            validator: (value) =>
-                                InputValidators().passwordValidator(value),
-                          ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: AppTextFormFieldWidget(
+                          controller: passwordCreate,
+                          labelText: 'Senha',
+                          obscureText: true,
+                          validator: (value) =>
+                              InputValidators().passwordValidator(value),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

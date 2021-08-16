@@ -117,6 +117,5 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
                   fontWeight: FontWeight.w500),
             )),
           ),
-        ));
   }
 }

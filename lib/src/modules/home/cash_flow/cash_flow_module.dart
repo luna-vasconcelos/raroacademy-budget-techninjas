@@ -14,7 +14,8 @@ class CashFlowModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute("/", child: (_, __) => CashFlowPage()),
-        ChildRoute("/cash_flow_entries", child: (_, __) => CashFlowEntriesPage()),
+        ChildRoute("/cash_flow_entries",
+            child: (_, __) => CashFlowEntriesPage()),
         ChildRoute("/cash_flow_exits", child: (_, __) => CashFlowExitsPage()),
         ChildRoute("/cash_flow_all", child: (_, __) => CashFlowAllPage()),
       ];

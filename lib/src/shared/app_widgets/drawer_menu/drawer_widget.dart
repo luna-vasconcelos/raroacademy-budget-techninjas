@@ -9,155 +9,177 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          Container(
-              height: 103,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.ciano, AppColors.roxo])),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 25, top: 45),
-                child: Text(
-                  "Olá, José",
-                  style: TextStyles.titledrawer,
-                ),
-              )),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 21, top: 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Perfil',
-                      style: TextStyles.tittlecarddrawer,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                  height: 103,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: <Color>[AppColors.ciano, AppColors.roxo])),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 25, top: 45),
+                    child: Text(
+                      "Olá, José",
+                      style: TextStyles.titledrawer,
                     ),
-                    //SizedBox(height: 15),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.all(0),
+                  )),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 21, top: 14),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Perfil',
+                              style: TextStyles.tittlecarddrawer,
+                            ),
+                            //SizedBox(height: 15),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(0),
+                              ),
+                              onPressed: () {
+                                Modular.to.pushNamed('/user');
+                              },
+                              child: Text(
+                                'Cadastro',
+                                style: TextStyles.subtittlecarddrawer,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      onPressed: () {
-                        Modular.to.pushNamed('/user');
-                      },
-                      child: Text(
-                        'Cadastro',
-                        style: TextStyles.subtittlecarddrawer,
+                      Divider(
+                        thickness: 1.5,
+                        indent: 0,
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 1.5,
-                indent: 0,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 21, top: 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Conta',
-                      style: TextStyles.tittlecarddrawer,
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.all(0),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 21, top: 14),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Conta',
+                              style: TextStyles.tittlecarddrawer,
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(0),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                'Gerenciar cartões',
+                                style: TextStyles.subtittlecarddrawer,
+                              ),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(0),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                'Investimentos',
+                                style: TextStyles.subtittlecarddrawer,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        'Gerenciar cartões',
-                        style: TextStyles.subtittlecarddrawer,
+                      Divider(
+                        thickness: 1.5,
+                        indent: 0,
                       ),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.all(0),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 21, top: 14),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Segurança',
+                              style: TextStyles.tittlecarddrawer,
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(0),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                'Alterar senha',
+                                style: TextStyles.subtittlecarddrawer,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        'Investimentos',
-                        style: TextStyles.subtittlecarddrawer,
+                      Divider(
+                        thickness: 1.5,
+                        indent: 0,
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 1.5,
-                indent: 0,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 21, top: 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Segurança',
-                      style: TextStyles.tittlecarddrawer,
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.all(0),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 21),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(0),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                'Ajuda',
+                                style: TextStyles.subtittlecarddrawer,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        'Alterar senha',
-                        style: TextStyles.subtittlecarddrawer,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 1.5,
-                indent: 0,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 21),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.all(0),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        'Ajuda',
-                        style: TextStyles.subtittlecarddrawer,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 130,
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 1.5,
-                indent: 0,
-              ),
-              Center(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(0),
+                    ],
                   ),
-                  onPressed: () {},
-                  child: Text(
-                    'Sair',
-                    style: TextStyles.roxow400Roboto,
-                  ),
-                ),
+                ],
               ),
             ],
+          ),
+          Positioned(
+            width: MediaQuery.of(context).size.width * 0.75,
+            bottom: 0,
+            child: Flex(
+              direction: Axis.vertical,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Divider(
+                  thickness: 1.5,
+                  indent: 0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(0),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'Sair',
+                        style: TextStyles.roxow400Roboto,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

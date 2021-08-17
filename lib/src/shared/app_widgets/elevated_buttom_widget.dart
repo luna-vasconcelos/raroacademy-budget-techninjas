@@ -65,7 +65,7 @@ class ElevatedButtonWidget extends StatelessWidget {
           mainAxisAlignment: mainAlign ?? MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            prefixicon != null ? prefixicon! : Text(""),
+            if (prefixicon != null) prefixicon!,
             Text(
               buttonText,
               style: TextStyle(
@@ -74,7 +74,7 @@ class ElevatedButtonWidget extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            sufixicon != null ? sufixicon! : Text("")
+            if (sufixicon != null) ...[sufixicon!],
           ],
         ),
       ),

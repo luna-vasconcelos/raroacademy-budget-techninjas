@@ -12,6 +12,8 @@ class AppColors {
   static Color background = Colors.white;
   static Color greySplash = Color.fromRGBO(253, 253, 253, 1);
   static Color lightgrey = Color.fromRGBO(0, 0, 0, 0.54);
+  static Color facebook = Color.fromRGBO(59, 89, 152, 1);
+  static Color googleborder = Color.fromRGBO(189, 189, 189, 1);
 
   static var blueGradient = LinearGradient(
     colors: <Color>[

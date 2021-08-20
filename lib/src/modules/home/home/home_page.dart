@@ -55,17 +55,22 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Modular.to.pushNamed('/home/cash_flow');
                   },
-                  child: InputAndOutputCard(),
+                  child: InputAndOutputCard(
+                    balance: 'R\$ 3.000,00',
+                    expenses: 'R\$ 5.000,00',
+                    incomes: 'R\$ 8.000,00',
+                    dropdown: Container(), //trocar por dropdownwidget
+                  ),
                 ),
                 TransactionsListCard(),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: ElevatedButtonWidget(
                       fontSize: 16,
-                      buttonText: '   \u{FF0B}  NOVO CONTROLE',
+                      buttonText: '   \u{FF0B}  NOVO CONTROLE  ',
                       width: 183,
                       height: 40,
-                      paddingValue: 0,
+                      paddingValue: 2,
                       onpressed: () {
                         Modular.to.pushNamed('/user');
                       }),

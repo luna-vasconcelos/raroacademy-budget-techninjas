@@ -1,9 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 
 class InputAndOutputCard extends StatelessWidget {
+  final String balance;
+  final String expenses;
+  final String incomes;
+  final Widget dropdown;
+
+  InputAndOutputCard({
+    required this.balance,
+    required this.expenses,
+    required this.incomes,
+    required this.dropdown,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -21,7 +34,7 @@ class InputAndOutputCard extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                'R\$ 3.000,00',
+                balance,
                 style: TextStyles.blackw400Roboto,
               ),
               trailing: Icon(
@@ -47,7 +60,7 @@ class InputAndOutputCard extends StatelessWidget {
                             style: TextStyles.black14w500Roboto,
                           ),
                           Text(
-                            'R\$ 5.000,00',
+                            expenses,
                             style: TextStyles.black14w400Roboto,
                           ),
                         ],
@@ -60,6 +73,7 @@ class InputAndOutputCard extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 1,
                         ),
                         Container(
+                          //trocar por fractionalsizedbox
                           height: 11,
                           width: MediaQuery.of(context).size.width * 0.45,
                           alignment: Alignment.centerLeft,
@@ -80,7 +94,7 @@ class InputAndOutputCard extends StatelessWidget {
                             style: TextStyles.black14w500Roboto,
                           ),
                           Text(
-                            'R\$ 8.000,00',
+                            incomes,
                             style: TextStyles.black14w400Roboto,
                           ),
                         ],
@@ -92,6 +106,7 @@ class InputAndOutputCard extends StatelessWidget {
                             height: 11,
                             width: MediaQuery.of(context).size.width * 1),
                         Container(
+                          //trocar por fractionalsizedbox
                           height: 11,
                           width: MediaQuery.of(context).size.width * 1,
                           alignment: Alignment.centerLeft,

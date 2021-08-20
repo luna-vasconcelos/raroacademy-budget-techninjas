@@ -1,6 +1,6 @@
-import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/initial/shared/socialprovider_button_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
@@ -94,52 +94,46 @@ class _InitialPageState
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
                           ElevatedButtonWidget(
-                            fontSize: 18,
+                            fontSize: 14,
                             buttonText: 'CONTINUAR',
                             width: 114,
                             height: 36,
                             onpressed: () {
                               if (_formKey.currentState!.validate()) {
-                                Modular.to.pushNamed('/login');
+                                Modular.to.pushReplacementNamed('/login');
                               }
                             },
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 40,
+                        height: MediaQuery.of(context).size.width*0.4,
                       ),
                       Text(
-                        'OU',
-                        style:
-                            TextStyle(fontSize: 16, color: AppColors.lightgrey),
+                        'ou',
+                        style: TextStyle(
+                          fontSize: 16, 
+                          color: AppColors.lightgrey
+                        ),
+                      ),
+                      SizedBox(height: 9,),
+                      SocialProviderButtonWidget(
+                        onTap: (){},
+                        icon: 'assets/icons/google.png',
+                        textColor: AppColors.lightgrey,
+                        buttonText: 'CONTINUAR COM O GOOGLE',
+                        backgroundColor: Colors.white,
+                      ),
+                      SizedBox(height: 15,),
+                      SocialProviderButtonWidget(
+                        onTap: (){},
+                        icon: 'assets/icons/facebook.png',
+                        buttonText: 'CONTINUAR COM O FACEBOOK',
+                        textColor: Colors.white,
+                        backgroundColor: AppColors.facebook,
                       ),
                     ],
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 9,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 540, left: 45),
-                child: Column(
-                  children: [
-                    GoogleAuthButton(
-                      onPressed: () {},
-                      text: 'CONTINUAR COM O GOOGLE',
-                      style: AuthButtonStyle(
-                        borderRadius: 20,
-                      ),
-                    ),
-                    FacebookAuthButton(
-                      onPressed: () {},
-                      text: 'CONTINUAR COM O FACEBOOK',
-                      style: AuthButtonStyle(
-                        borderRadius: 20,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],

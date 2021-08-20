@@ -9,6 +9,8 @@ class AuthService {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    }
   }
 }

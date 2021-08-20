@@ -106,7 +106,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                     AuthService()
                                         .login(email.text, password.text)
                                         .then((value) =>
-                                            Modular.to.pushNamed('/home'));
+                                            Modular.to.pushReplacementNamed('/home'));
                                   }
                                 }),
                           ],

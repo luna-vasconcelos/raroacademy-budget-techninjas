@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/home/home/homepage_cards/general_balancecard1.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/home/home/homepage_cards/transactionslistCard.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu/drawer_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
+import 'homepage_cards/inputandautoputCard.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -40,196 +42,22 @@ class _HomePageState extends State<HomePage> {
           elevation: 0.0,
         ),
         body: Container(
-          width: MediaQuery.of(context).size.width * 0.98,
-          height: MediaQuery.of(context).size.height * 0.98,
+          // width: MediaQuery.of(context).size.width * 0.98,
+          // height: MediaQuery.of(context).size.height * 0.98,
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(children: [
-                Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          'Saldo geral',
-                          style: TextStyles.roxow500Roboto,
-                        ),
-                      ),
-                      subtitle: Text(
-                        'R\$ 3.000,00',
-                        style: TextStyles.blackw400Roboto,
-                      ),
-                      trailing: Icon(
-                        Icons.remove_red_eye,
-                        color: AppColors.roxo,
-                        size: 28,
-                      ),
-                    ),
-                  ),
-                ),
+                GeneralBalanceCard(
+                    balance:
+                        'R\$ 3.000,00'), //vai passar o controller puxando o valor total do usuário do firebase
                 GestureDetector(
                   onTap: () {
                     Modular.to.pushNamed('/home/cash_flow');
                   },
-                  child: Card(
-                    elevation: 5,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8, bottom: 8),
-                          child: ListTile(
-                            title: Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Text(
-                                'Dia a dia',
-                                style: TextStyles.roxow500Roboto,
-                              ),
-                            ),
-                            subtitle: Text(
-                              'R\$ 3.000,00',
-                              style: TextStyles.blackw400Roboto,
-                            ),
-                            trailing: Icon(
-                              Icons.remove_red_eye,
-                              color: AppColors.roxo,
-                              size: 28,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 4),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Saídas',
-                                          style: TextStyles.black14w500Roboto,
-                                        ),
-                                        Text(
-                                          'R\$ 5.000,00',
-                                          style: TextStyles.black14w400Roboto,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        height: 11,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                1,
-                                      ),
-                                      Container(
-                                        height: 11,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.45,
-                                        alignment: Alignment.centerLeft,
-                                        decoration: BoxDecoration(
-                                            color: AppColors.ciano,
-                                            borderRadius:
-                                                BorderRadius.circular(4)),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 16),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 4),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Entradas',
-                                          style: TextStyles.black14w500Roboto,
-                                        ),
-                                        Text(
-                                          'R\$ 8.000,00',
-                                          style: TextStyles.black14w400Roboto,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Stack(
-                                    children: [
-                                      Container(
-                                          height: 11,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1),
-                                      Container(
-                                        height: 11,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                1,
-                                        alignment: Alignment.centerLeft,
-                                        decoration: BoxDecoration(
-                                            color: AppColors.amarelo,
-                                            borderRadius:
-                                                BorderRadius.circular(4)),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  child: InputAndOutputCard(),
                 ),
-                Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              'Últimas transações',
-                              style: TextStyles.roxow500Roboto,
-                            ),
-                          ),
-                          subtitle: Text(
-                            'R\$ 364,00',
-                            style: TextStyles.blackw400Roboto,
-                          ),
-                          trailing: Icon(
-                            Icons.keyboard_arrow_right_outlined,
-                            color: AppColors.roxo,
-                            size: 35,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Row(
-                            children: [
-                              Text(
-                                'No momento',
-                                style: TextStyles.subtitle2,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                TransactionsListCard(),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: ElevatedButtonWidget(

@@ -5,7 +5,6 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_color
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 import 'initial_page_controller.dart';
 
 class InitialPage extends StatefulWidget {
@@ -22,8 +21,9 @@ class _InitialPageState
     // store.login(email: email, password: password);
     super.initState();
   }
+
   final _formKey = GlobalKey<FormState>();
-  
+
   @override
   Widget build(BuildContext context) {
     TextEditingController email = new TextEditingController();
@@ -85,7 +85,7 @@ class _InitialPageState
                         hintText: 'Insira seu e-mail',
                         labelText: 'E-mail',
                         //validator: (value) =>
-                            //InputValidators().emailValidator(value),
+                        //InputValidators().emailValidator(value),
                       ),
                       SizedBox(
                         height: 16,
@@ -107,26 +107,28 @@ class _InitialPageState
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.width*0.4,
+                        height: MediaQuery.of(context).size.width * 0.4,
                       ),
                       Text(
                         'ou',
-                        style: TextStyle(
-                          fontSize: 16, 
-                          color: AppColors.lightgrey
-                        ),
+                        style:
+                            TextStyle(fontSize: 16, color: AppColors.lightgrey),
                       ),
-                      SizedBox(height: 9,),
+                      SizedBox(
+                        height: 9,
+                      ),
                       SocialProviderButtonWidget(
-                        onTap: (){},
+                        onTap: () {},
                         icon: 'assets/icons/google.png',
                         textColor: AppColors.lightgrey,
                         buttonText: 'CONTINUAR COM O GOOGLE',
                         backgroundColor: Colors.white,
                       ),
-                      SizedBox(height: 15,),
+                      SizedBox(
+                        height: 15,
+                      ),
                       SocialProviderButtonWidget(
-                        onTap: (){},
+                        onTap: () {},
                         icon: 'assets/icons/facebook.png',
                         buttonText: 'CONTINUAR COM O FACEBOOK',
                         textColor: Colors.white,

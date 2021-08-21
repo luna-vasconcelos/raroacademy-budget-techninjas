@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/repository/login_repository.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/login_repository.dart';
 import 'package:mobx/mobx.dart';
 part 'create_account_controller.g.dart';
 

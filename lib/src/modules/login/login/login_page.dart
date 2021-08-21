@@ -87,6 +87,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           ),
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             TextButton(
                               onPressed: () {},

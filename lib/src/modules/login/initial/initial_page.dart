@@ -107,7 +107,7 @@ class _InitialPageState
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.width * 0.4,
+                        height: MediaQuery.of(context).size.width * 0.2,
                       ),
                       Text(
                         'ou',

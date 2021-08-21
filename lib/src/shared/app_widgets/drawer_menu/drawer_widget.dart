@@ -128,7 +128,7 @@ class DrawerWidget extends StatelessWidget {
                         indent: 0,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 21),
+                        padding: const EdgeInsets.only(left: 12),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

@@ -52,64 +52,67 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        drawer: DrawerWidget(),
-        appBar: AppBar(
-          title: Text(
-            'Olá, José',
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontSize: 24,
-              fontWeight: FontWeight.w400,
+      child: ListTileTheme(
+        iconColor: Colors.white,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          drawer: DrawerWidget(),
+          appBar: AppBar(
+            title: Text(
+              'Olá, José',
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 24,
+                fontWeight: FontWeight.w400,
+              ),
             ),
+            toolbarHeight: 65,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: <Color>[AppColors.ciano, AppColors.roxo])),
+            ),
+            centerTitle: true,
+            elevation: 0.0,
           ),
-          toolbarHeight: 65,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[AppColors.ciano, AppColors.roxo])),
-          ),
-          centerTitle: true,
-          elevation: 0.0,
-        ),
-        body: Container(
-          // width: MediaQuery.of(context).size.width * 0.98,
-          // height: MediaQuery.of(context).size.height * 0.98,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(children: [
-                GeneralBalanceCard(
-                    balance:
-                        'R\$ 3.000,00'), //vai passar o controller puxando o valor total do usuário do firebase
-                GestureDetector(
-                  onTap: () {
-                    Modular.to.pushNamed('/home/cash_flow');
-                  },
-                  child: InputAndOutputCard(
-                    balance: 'R\$ 3.000,00',
-                    expenses: 'R\$ 5.000,00',
-                    incomes: 'R\$ 8.000,00',
-                    dropdown: Container(), //trocar por dropdownwidget
+          body: Container(
+            // width: MediaQuery.of(context).size.width * 0.98,
+            // height: MediaQuery.of(context).size.height * 0.98,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(children: [
+                  GeneralBalanceCard(
+                      balance:
+                          'R\$ 3.000,00'), //vai passar o controller puxando o valor total do usuário do firebase
+                  GestureDetector(
+                    onTap: () {
+                      Modular.to.pushNamed('/home/cash_flow');
+                    },
+                    child: InputAndOutputCard(
+                      balance: 'R\$ 3.000,00',
+                      expenses: 'R\$ 5.000,00',
+                      incomes: 'R\$ 8.000,00',
+                      dropdown: Container(), //trocar por dropdownwidget
+                    ),
                   ),
-                ),
-                TransactionsListCard(transactions),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: ElevatedButtonWidget(
-                      fontSize: 16,
-                      buttonText: '   \u{FF0B}  NOVO CONTROLE  ',
-                      width: 183,
-                      height: 40,
-                      paddingValue: 2,
-                      onpressed: () {
-                        Modular.to.pushNamed('/user');
-                      }),
-                )
-              ]),
+                  TransactionsListCard(transactions),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: ElevatedButtonWidget(
+                        fontSize: 16,
+                        buttonText: '   \u{FF0B}  NOVO CONTROLE  ',
+                        width: 183,
+                        height: 40,
+                        paddingValue: 2,
+                        onpressed: () {
+                          Modular.to.pushNamed('/user');
+                        }),
+                  )
+                ]),
+              ),
             ),
           ),
         ),

@@ -7,11 +7,6 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-      ),
       initialRoute: "/",
     ).modular();
   }

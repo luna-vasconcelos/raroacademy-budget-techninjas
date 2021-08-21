@@ -19,26 +19,30 @@ class AppTextFormFieldWidget extends StatefulWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final Function? onEditingComplete;
+  final AutovalidateMode? autovalidateMode;
+  final FloatingLabelBehavior? floatingLabelBehavior;
 
-  const AppTextFormFieldWidget({
-    Key? key,
-    this.controller,
-    this.hintText,
-    this.errorMessage,
-    this.labelText,
-    this.helperText,
-    this.obscureText = false,
-    this.onChanged,
-    this.inputFormatters,
-    this.icon,
-    this.suffixIcon,
-    this.suffix,
-    this.focusNode,
-    this.keyboardType,
-    this.textInputAction,
-    this.onEditingComplete,
-    this.validator,
-  }) : super(key: key);
+  const AppTextFormFieldWidget(
+      {Key? key,
+      this.controller,
+      this.hintText,
+      this.errorMessage,
+      this.labelText,
+      this.helperText,
+      this.obscureText = false,
+      this.onChanged,
+      this.inputFormatters,
+      this.icon,
+      this.suffixIcon,
+      this.suffix,
+      this.focusNode,
+      this.keyboardType,
+      this.textInputAction,
+      this.onEditingComplete,
+      this.validator,
+      this.autovalidateMode,
+      this.floatingLabelBehavior})
+      : super(key: key);
 
   @override
   _AppTextFormFieldWidgetState createState() => _AppTextFormFieldWidgetState();
@@ -53,6 +57,8 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: widget.autovalidateMode,
+      autofocus: true,
       onChanged: widget.onChanged,
       obscureText: widget.obscureText,
       controller: widget.controller,
@@ -61,6 +67,7 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
       textInputAction: widget.textInputAction,
       validator: widget.validator,
       decoration: InputDecoration(
+        floatingLabelBehavior: widget.floatingLabelBehavior,
         icon: widget.icon,
         suffixIcon: widget.suffixIcon,
         suffix: widget.suffix,

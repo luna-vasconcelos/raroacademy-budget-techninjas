@@ -3,21 +3,21 @@ import 'dart:convert';
 class Transaction {
   final String id;
   final String userId;
-  final String title;
+  final String? title;
   final double value;
   final DateTime date;
   final String category;
   final String type;
 
-  Transaction(
-    this.id,
-    this.userId,
+  Transaction({
+    required this.id,
+    required this.userId,
     this.title,
-    this.value,
-    this.date,
-    this.category,
-    this.type,
-  );
+    required this.value,
+    required this.date,
+    required this.category,
+    required this.type,
+  });
 
   Transaction copyWith({
     String? id,
@@ -29,13 +29,13 @@ class Transaction {
     String? type,
   }) {
     return Transaction(
-      id ?? this.id,
-      userId ?? this.userId,
-      title ?? this.title,
-      value ?? this.value,
-      date ?? this.date,
-      category ?? this.category,
-      type ?? this.type,
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      title: title ?? this.title,
+      value: value ?? this.value,
+      date: date ?? this.date,
+      category: category ?? this.category,
+      type: type ?? this.type,
     );
   }
 
@@ -53,13 +53,13 @@ class Transaction {
 
   factory Transaction.fromMap(Map<String, dynamic> map) {
     return Transaction(
-      map['id'],
-      map['userId'],
-      map['title'],
-      map['value'],
-      DateTime.fromMillisecondsSinceEpoch(map['date']),
-      map['category'],
-      map['type'],
+      id: map['id'],
+      userId: map['userId'],
+      title: map['title'],
+      value: map['value'],
+      date: DateTime.fromMillisecondsSinceEpoch(map['date']),
+      category: map['category'],
+      type: map['type'],
     );
   }
 

@@ -5,7 +5,9 @@ import 'package:raroacademy_budget_techninjas/src/modules/home/home/homepage_car
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu/drawer_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/models/transaction_model.dart';
 import 'homepage_cards/inputandautoputCard.dart';
+import 'dart:math';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -15,6 +17,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _transactions = [
+    Transaction(
+      id: 't1',
+      userId: '',
+      title: 'Refeição',
+      value: 25.00,
+      date: DateTime.now(),
+      category: 'Refeição',
+      type: 'out',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

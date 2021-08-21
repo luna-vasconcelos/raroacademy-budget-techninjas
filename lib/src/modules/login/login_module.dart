@@ -2,7 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/login/login_controller.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/recovery_password/recovery_password_controller.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/repository/login_repository.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/login_repository.dart';
 
 import 'create_account/create_account_page.dart';
 import 'login/login_page.dart';

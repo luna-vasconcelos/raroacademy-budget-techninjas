@@ -22,10 +22,10 @@ class _InitialPageState
     // store.login(email: email, password: password);
     super.initState();
   }
-
+  final _formKey = GlobalKey<FormState>();
+  
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
     TextEditingController email = new TextEditingController();
 
     return SafeArea(
@@ -84,8 +84,8 @@ class _InitialPageState
                         controller: email,
                         hintText: 'Insira seu e-mail',
                         labelText: 'E-mail',
-                        validator: (value) =>
-                            InputValidators().emailValidator(value),
+                        //validator: (value) =>
+                            //InputValidators().emailValidator(value),
                       ),
                       SizedBox(
                         height: 16,

@@ -1,17 +1,32 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class LoginRepository {
+  FirebaseAuth auth = FirebaseAuth.instance;
 
-  final _firebaseAuth = FirebaseAuth.instance;
+  // signup
 
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  Future<void> login(String email, String password) async {
+  // login-signin
+  Future<String?> login(String email, String password) async {
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+      return Modular.to.pushReplacementNamed('/home');
     } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('Usuário não encontrado.');
+      } else if (e.code == 'wrong-password') {
+        print('Senha incorreta.');
+      }
       print(e.message);
     }
   }
+
+  // sign out
+  void signOut() {
+    auth.signOut().then((value) => Modular.to.pushReplacementNamed('/'));
+  }
+
 }

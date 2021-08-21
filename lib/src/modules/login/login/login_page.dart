@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/login/login_controller.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/services/auth_service.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/login_repository.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
@@ -103,10 +103,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 height: 36,
                                 onpressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    AuthService()
-                                        .login(email.text, password.text)
-                                        .then((value) => Modular.to
-                                            .pushReplacementNamed('/home'));
+                                    LoginRepository()
+                                        .login(email.text, password.text);
                                   }
                                 }),
                           ],

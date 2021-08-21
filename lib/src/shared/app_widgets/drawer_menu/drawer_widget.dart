@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/login_repository.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 
@@ -170,7 +171,9 @@ class DrawerWidget extends StatelessWidget {
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.all(0),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        LoginRepository().signOut();
+                      },
                       child: Text(
                         'Sair',
                         style: TextStyles.roxow400Roboto,

@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
-import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_succes_page.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 
-class CreateAccountPage extends StatefulWidget {
-  final formKey = GlobalKey<FormState>();
+import 'create_account_user_model.dart';
 
+class CreateAccountPage extends StatefulWidget {
   CreateAccountPage({Key? key}) : super(key: key);
 
   @override
@@ -21,8 +20,39 @@ class CreateAccountPage extends StatefulWidget {
 
 class _CreateAccountPageState
     extends ModularState<CreateAccountPage, CreateAccountController> {
+  final _namefocusNode = FocusNode();
+  final _emailfocusNode = FocusNode();
+  final _telefonefocusNode = FocusNode();
+  final _cpffocusNode = FocusNode();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool? policy;
   int currentPage = 0;
+  @override
+  void initState() {
+    super.initState();
+    _namefocusNode.addListener(() {
+      setState(() {});
+    });
+    _emailfocusNode.addListener(() {
+      setState(() {});
+    });
+    _telefonefocusNode.addListener(() {
+      setState(() {});
+    });
+    _cpffocusNode.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _namefocusNode.dispose();
+    _emailfocusNode.dispose();
+    _telefonefocusNode.dispose();
+    _cpffocusNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,15 +103,22 @@ class _CreateAccountPageState
                     Container(
                       padding: EdgeInsets.only(top: 419, left: 48, right: 48),
                       child: Form(
-                        key: widget.formKey,
+                        key: _formKey,
                         child: Column(
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                focusNode: _namefocusNode,
+                                textInputAction: TextInputAction.next,
+                                floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
                                 controller: controller.nameCreate,
-                                hintText: 'Nome',
-                                labelText: 'Nome',
+                                labelText:
+                                    _namefocusNode.hasFocus ? "Nome" : "",
+                                hintText: _namefocusNode.hasFocus ? "" : "Nome",
                                 //validator: (value) =>
                               ),
                             ),
@@ -89,8 +126,17 @@ class _CreateAccountPageState
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
                                 controller: controller.emailCreate,
-                                labelText: 'E-Mail',
-                                hintText: 'E-Mail',
+                                textInputAction: TextInputAction.go,
+                                floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                focusNode: _emailfocusNode,
+                                onEditingComplete: () => {},
+                                labelText:
+                                    _emailfocusNode.hasFocus ? "E-mail" : "",
+                                hintText:
+                                    _emailfocusNode.hasFocus ? "" : "E-mail",
                                 validator: (value) => InputValidators()
                                     .emailValidator(value ?? ""),
                               ),
@@ -144,7 +190,7 @@ class _CreateAccountPageState
                     Container(
                       padding: EdgeInsets.only(top: 419, left: 48, right: 48),
                       child: Form(
-                        key: widget.formKey,
+                        key: _formKey,
                         child: Column(
                           children: [
                             Padding(
@@ -332,7 +378,7 @@ class _CreateAccountPageState
                     Container(
                       padding: EdgeInsets.only(top: 419, left: 48, right: 48),
                       child: Form(
-                        key: widget.formKey,
+                        key: _formKey,
                         child: Column(
                           children: [
                             Padding(
@@ -352,7 +398,7 @@ class _CreateAccountPageState
                                   hintText: 'Confirme sua senha',
                                   validator: (value) {
                                     if (value !=
-                                        controller.passwordCreate.toString()) {
+                                        controller.passwordCreate.text) {
                                       return "As senhas não coincidem";
                                     } else {
                                       InputValidators()
@@ -433,9 +479,22 @@ class _CreateAccountPageState
                             size: 18,
                           ),
                           onpressed: () {
-                            if (currentPage == 3) {
-                              Modular.to.popAndPushNamed(
-                                  "create_account_module/onboard");
+                            if (currentPage == 3 &&
+                                _formKey.currentState!.validate() &&
+                                policy == true) {
+                              final user = User(
+                                cpf: controller.cpfCreate.value.text,
+                                name: controller.nameCreate.value.text,
+                                email: controller.emailCreate.value.text,
+                                password: controller.passwordCreate.value.text,
+                                telephone: controller.telefoneCreate.value.text,
+                                policyAccepted: policy!,
+                              );
+
+                              print(user);
+                              // Modular.to.popAndPushNamed(
+                              //   "create_account_module/onboard");
+
                             } else {
                               controller.pageViewController.nextPage(
                                 duration: Duration(milliseconds: 400),

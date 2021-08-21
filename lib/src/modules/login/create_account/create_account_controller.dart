@@ -19,9 +19,6 @@ abstract class _CreateAccountControllerBase with Store implements Disposable {
   final passwordCreate = TextEditingController();
   final passwordCreateConfirmation = TextEditingController();
 
-  User globalUser =
-      User(uuid: '', name: '', email: '', telephone: '', cpf: '', password: '');
-
   @override
   void dispose() {
     pageViewController.dispose();

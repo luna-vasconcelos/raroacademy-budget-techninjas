@@ -18,7 +18,6 @@ abstract class _CreateAccountControllerBase with Store implements Disposable {
   final cpfCreate = TextEditingController();
   final passwordCreate = TextEditingController();
   final passwordCreateConfirmation = TextEditingController();
-  bool? policy;
 
   User globalUser =
       User(uuid: '', name: '', email: '', telephone: '', cpf: '', password: '');

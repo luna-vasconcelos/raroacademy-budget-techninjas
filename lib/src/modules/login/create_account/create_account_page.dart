@@ -1,6 +1,7 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
@@ -10,7 +11,6 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/
 
 class CreateAccountPage extends StatefulWidget {
   final formKey = GlobalKey<FormState>();
-  final controller = CreateAccountController();
 
   CreateAccountPage({Key? key}) : super(key: key);
 
@@ -18,14 +18,16 @@ class CreateAccountPage extends StatefulWidget {
   _CreateAccountPageState createState() => _CreateAccountPageState();
 }
 
-class _CreateAccountPageState extends State<CreateAccountPage> {
+class _CreateAccountPageState
+    extends ModularState<CreateAccountPage, CreateAccountController> {
+  bool? policy;
   int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         //physics: NeverScrollableScrollPhysics(),
-        controller: widget.controller.pageViewController,
+        controller: controller.pageViewController,
         onPageChanged: (index) {
           currentPage = index;
         },
@@ -76,7 +78,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: widget.controller.nameCreate,
+                                controller: controller.nameCreate,
                                 hintText: 'Nome',
                                 labelText: 'Nome',
                                 //validator: (value) =>
@@ -85,11 +87,11 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: widget.controller.emailCreate,
+                                controller: controller.emailCreate,
                                 labelText: 'E-Mail',
                                 hintText: 'E-Mail',
-                                validator: (value) =>
-                                    InputValidators().emailValidator(value),
+                                validator: (value) => InputValidators()
+                                    .emailValidator(value ?? ""),
                               ),
                             ),
                           ],
@@ -147,7 +149,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: widget.controller.telefoneCreate,
+                                controller: controller.telefoneCreate,
                                 keyboardType: TextInputType.phone,
                                 hintText: 'Telefone',
                                 labelText: 'Telefone',
@@ -155,14 +157,14 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                   FilteringTextInputFormatter.digitsOnly,
                                   TelefoneInputFormatter(),
                                 ],
-                                validator: (value) =>
-                                    InputValidators().emailValidator(value),
+                                validator: (value) => InputValidators()
+                                    .emailValidator(value ?? ""),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: widget.controller.cpfCreate,
+                                controller: controller.cpfCreate,
                                 labelText: 'CPF',
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
@@ -170,7 +172,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                   CpfInputFormatter(),
                                 ],
                                 validator: (value) =>
-                                    InputValidators().passwordValidator(value),
+                                    InputValidators().passwordValidator(value!),
                               ),
                             ),
                           ],
@@ -238,13 +240,13 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               height: 48,
                               width: 48,
                               child: Radio<bool>(
-                                value: widget.controller.policy ?? true,
-                                groupValue: widget.controller.policy,
+                                value: policy ?? true,
+                                groupValue: policy,
                                 toggleable: true,
                                 onChanged: (value) {
                                   setState(() {
-                                    widget.controller.policy = value;
-                                    print(widget.controller.policy);
+                                    policy = value;
+                                    print(policy);
                                   });
                                 },
                               ),
@@ -286,7 +288,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       left: 48,
                       child: SizedBox(
                         width: 255.0,
-                        height: 86.0,
+                        height: 118.0,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,9 +298,32 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               style: TextStyles.h3HeadCreateAccount,
                             ),
                             Text(
-                              "Mais alguns dados.",
+                              "Agora crie sua senha contendo:",
                               style: TextStyles.h6HeadCreateAccount,
                             )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 320,
+                      child: Container(
+                        margin: EdgeInsets.only(left: 60, right: 48),
+                        height: 72,
+                        width: 267,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "•  pelo menos oito caracteres",
+                              style: TextStyles.blackRoboto16400,
+                            ),
+                            //TODO Verificar o campo com Bullet Point
+                            Text(
+                              "•  letras maiúscula, letras minúsculas, números e símbolos",
+                              style: TextStyles.blackRoboto16400,
+                            ),
                           ],
                         ),
                       ),
@@ -312,21 +337,27 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: widget.controller.telefoneCreate,
-                                hintText: 'Telefone',
-                                labelText: 'Telefone',
-                                validator: (value) =>
-                                    InputValidators().emailValidator(value),
-                              ),
+                                  controller: controller.passwordCreate,
+                                  hintText: 'Crie uma senha',
+                                  validator: (value) {
+                                    InputValidators().passwordValidator(value!);
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: widget.controller.cpfCreate,
-                                labelText: 'CPF',
-                                validator: (value) =>
-                                    InputValidators().passwordValidator(value),
-                              ),
+                                  controller:
+                                      controller.passwordCreateConfirmation,
+                                  hintText: 'Confirme sua senha',
+                                  validator: (value) {
+                                    if (value !=
+                                        controller.passwordCreate.toString()) {
+                                      return "As senhas não coincidem";
+                                    } else {
+                                      InputValidators()
+                                          .passwordValidator(value!);
+                                    }
+                                  }),
                             ),
                           ],
                         ),
@@ -342,7 +373,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: AnimatedBuilder(
-          animation: widget.controller.pageViewController,
+          animation: controller.pageViewController,
           builder: (context, snapshot) {
             return Padding(
               padding: const EdgeInsets.only(left: 12),
@@ -374,9 +405,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                         onPressed: () {
                           if (currentPage == 0) {
-                            //Modular.to.popAndPushNamed('/initial');
+                            Modular.to.popAndPushNamed('/initial');
                           } else {
-                            widget.controller.pageViewController.previousPage(
+                            controller.pageViewController.previousPage(
                               duration: Duration(milliseconds: 400),
                               curve: Curves.easeInOut,
                             );
@@ -402,9 +433,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                           ),
                           onpressed: () {
                             if (currentPage == 4) {
-                              //Modular.to.popAndPushNamed('');
+                              Modular.to.popAndPushNamed('');
                             } else {
-                              widget.controller.pageViewController.nextPage(
+                              controller.pageViewController.nextPage(
                                 duration: Duration(milliseconds: 400),
                                 curve: Curves.easeInOut,
                               );

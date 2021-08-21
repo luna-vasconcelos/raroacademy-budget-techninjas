@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 class Transaction {
   final String id;
   final String userId;
@@ -8,6 +10,8 @@ class Transaction {
   final DateTime date;
   final String category;
   final String type;
+  final color;
+  final icon;
 
   Transaction({
     required this.id,
@@ -17,6 +21,8 @@ class Transaction {
     required this.date,
     required this.category,
     required this.type,
+    required this.icon,
+    required this.color,
   });
 
   Transaction copyWith({
@@ -27,6 +33,7 @@ class Transaction {
     DateTime? date,
     String? category,
     String? type,
+    Icon? icon,
   }) {
     return Transaction(
       id: id ?? this.id,
@@ -36,6 +43,8 @@ class Transaction {
       date: date ?? this.date,
       category: category ?? this.category,
       type: type ?? this.type,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
     );
   }
 
@@ -48,19 +57,21 @@ class Transaction {
       'date': date.millisecondsSinceEpoch,
       'category': category,
       'type': type,
+      'icon': icon.toMap(),
     };
   }
 
   factory Transaction.fromMap(Map<String, dynamic> map) {
     return Transaction(
-      id: map['id'],
-      userId: map['userId'],
-      title: map['title'],
-      value: map['value'],
-      date: DateTime.fromMillisecondsSinceEpoch(map['date']),
-      category: map['category'],
-      type: map['type'],
-    );
+        id: map['id'],
+        userId: map['userId'],
+        title: map['title'],
+        value: map['value'],
+        date: DateTime.fromMillisecondsSinceEpoch(map['date']),
+        category: map['category'],
+        type: map['type'],
+        icon: map['icon'],
+        color: map['color']);
   }
 
   String toJson() => json.encode(toMap());
@@ -70,7 +81,7 @@ class Transaction {
 
   @override
   String toString() {
-    return 'Transaction(id: $id, userId: $userId, title: $title, value: $value, date: $date, category: $category, type: $type)';
+    return 'Transaction(id: $id, userId: $userId, title: $title, value: $value, date: $date, category: $category, type: $type, icon: $icon)';
   }
 
   @override
@@ -84,7 +95,8 @@ class Transaction {
         other.value == value &&
         other.date == date &&
         other.category == category &&
-        other.type == type;
+        other.type == type &&
+        other.icon == icon;
   }
 
   @override
@@ -95,6 +107,7 @@ class Transaction {
         value.hashCode ^
         date.hashCode ^
         category.hashCode ^
-        type.hashCode;
+        type.hashCode ^
+        icon.hashCode;
   }
 }

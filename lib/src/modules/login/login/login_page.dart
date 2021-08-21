@@ -104,9 +104,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                 onpressed: () {
                                   if (_formKey.currentState!.validate()) {
                                     LoginRepository()
-                                        .login(email.text, password.text)
-                                        .then((value) => Modular.to
-                                            .pushReplacementNamed('/home'));
+                                        .login(email.text, password.text);
                                   }
                                 }),
                           ],

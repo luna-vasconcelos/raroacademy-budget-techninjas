@@ -7,7 +7,6 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/models/transaction_model.dart';
 import 'homepage_cards/inputandautoputCard.dart';
-import 'dart:math';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -17,15 +16,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _transactions = [
+  final transactions = [
     Transaction(
       id: 't1',
       userId: '',
-      title: 'Refeição',
       value: 25.00,
       date: DateTime.now(),
       category: 'Refeição',
       type: 'out',
+      color: AppColors.amarelo,
+      icon: Icon(Icons.no_meals),
+    ),
+    Transaction(
+      id: 't2',
+      userId: '',
+      value: 57.30,
+      date: DateTime.now(),
+      category: 'Transporte',
+      type: 'out',
+      color: AppColors.verde,
+      icon: Icon(Icons.bus_alert),
+    ),
+    Transaction(
+      id: 't3',
+      userId: '',
+      value: 316.00,
+      date: DateTime.now(),
+      category: 'Educação',
+      type: 'out',
+      color: AppColors.ciano,
+      icon: Icon(Icons.book),
     ),
   ];
 
@@ -76,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     dropdown: Container(), //trocar por dropdownwidget
                   ),
                 ),
-                TransactionsListCard(),
+                TransactionsListCard(transactions),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: ElevatedButtonWidget(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_succes_page.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
@@ -432,8 +433,9 @@ class _CreateAccountPageState
                             size: 18,
                           ),
                           onpressed: () {
-                            if (currentPage == 4) {
-                              Modular.to.popAndPushNamed('');
+                            if (currentPage == 3) {
+                              Modular.to.popAndPushNamed(
+                                  "create_account_module/onboard");
                             } else {
                               controller.pageViewController.nextPage(
                                 duration: Duration(milliseconds: 400),

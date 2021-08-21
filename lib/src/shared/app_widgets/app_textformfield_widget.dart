@@ -47,7 +47,6 @@ class AppTextFormFieldWidget extends StatefulWidget {
 class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 

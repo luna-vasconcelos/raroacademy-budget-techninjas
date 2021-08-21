@@ -73,7 +73,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             hintText: 'Insira seu e-mail',
                             labelText: 'E-mail',
                             validator: (value) =>
-                                InputValidators().emailValidator(value),
+                                InputValidators().emailValidator(value ?? ""),
                           ),
                         ),
                         Padding(
@@ -83,7 +83,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             labelText: 'Senha',
                             obscureText: true,
                             validator: (value) =>
-                                InputValidators().passwordValidator(value),
+                                InputValidators().passwordValidator(value!),
                           ),
                         ),
                         Row(
@@ -105,8 +105,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                                   if (_formKey.currentState!.validate()) {
                                     LoginRepository()
                                         .login(email.text, password.text)
-                                        .then((value) =>
-                                            Modular.to.pushReplacementNamed('/home'));
+                                        .then((value) => Modular.to
+                                            .pushReplacementNamed('/home'));
                                   }
                                 }),
                           ],

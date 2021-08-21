@@ -8,8 +8,9 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 16,
     letterSpacing: 0.15,
-    color: Colors.black,
+    color: Color(0xFF343090),
   );
+
   static TextStyle blackRoboto16400 = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
@@ -30,6 +31,13 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 14,
     color: Color(0xFFC4C4C4),
+  );
+
+  static TextStyle subtitle1 = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    color: Colors.black87,
   );
 
   static TextStyle titleappbar = TextStyle(

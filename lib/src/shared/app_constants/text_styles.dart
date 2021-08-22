@@ -172,4 +172,12 @@ class TextStyles {
     fontSize: 48,
     color: AppColors.ciano,
   );
+  static TextStyle black12Roboto400 = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    letterSpacing: 0.15,
+    color: Color.fromRGBO(0, 0, 0, 0.54),
+    height: 1.5,
+  );
 }

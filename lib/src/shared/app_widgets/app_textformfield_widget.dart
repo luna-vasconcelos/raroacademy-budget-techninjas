@@ -21,6 +21,7 @@ class AppTextFormFieldWidget extends StatefulWidget {
   final Function? onEditingComplete;
   final AutovalidateMode? autovalidateMode;
   final FloatingLabelBehavior? floatingLabelBehavior;
+  final TextStyle? labelStyle;
 
   const AppTextFormFieldWidget(
       {Key? key,
@@ -41,7 +42,8 @@ class AppTextFormFieldWidget extends StatefulWidget {
       this.onEditingComplete,
       this.validator,
       this.autovalidateMode,
-      this.floatingLabelBehavior})
+      this.floatingLabelBehavior,
+      this.labelStyle})
       : super(key: key);
 
   @override
@@ -73,7 +75,7 @@ class _AppTextFormFieldWidgetState extends State<AppTextFormFieldWidget> {
         suffix: widget.suffix,
         hintText: widget.hintText,
         labelText: widget.labelText,
-        labelStyle: TextStyle(color: AppColors.roxo),
+        labelStyle: widget.labelStyle ?? TextStyle(color: AppColors.roxo),
         helperText: widget.helperText,
         border: UnderlineInputBorder(),
         focusedBorder: UnderlineInputBorder(

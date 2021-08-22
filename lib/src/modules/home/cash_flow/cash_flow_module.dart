@@ -3,6 +3,8 @@ import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_fl
 import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_all_page.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_entries_page.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_exits_page.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_newinput/cash_flow_newentry.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_newinput/cash_flow_newexit.dart';
 import 'cash_flow_controller.dart';
 
 class CashFlowModule extends Module {
@@ -18,5 +20,7 @@ class CashFlowModule extends Module {
             child: (_, __) => CashFlowEntriesPage()),
         ChildRoute("/cash_flow_exits", child: (_, __) => CashFlowExitsPage()),
         ChildRoute("/cash_flow_all", child: (_, __) => CashFlowAllPage()),
+        ChildRoute("/cash_flow_newentry", child: (_, __) => CashFlowNewEntryPage()),
+        ChildRoute("/cash_flow_newexit", child: (_, __) => CashFlowNewExitPage()),
       ];
 }

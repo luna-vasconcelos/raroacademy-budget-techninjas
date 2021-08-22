@@ -65,6 +65,9 @@ class _UserUpdatePageState extends State<UserUpdatePage> {
           ],
         ),
         buttonText: 'SALVAR ALTERAÇÕES',
+        height: 50,
+        width: 192,
+        onpressed: () {},
       ),
     );
   }

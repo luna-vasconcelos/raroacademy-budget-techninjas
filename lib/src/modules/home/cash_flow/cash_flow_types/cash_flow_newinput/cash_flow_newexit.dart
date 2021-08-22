@@ -69,31 +69,33 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
         elevation: 0.0,
       ),
       body: CardWidget(
-        content: Column(
-          children: [
-            AppTextFormFieldWidget(
-              labelText: 'Valor em R\$',
-              labelStyle: TextStyles.blackRoboto16400,
-            ),
-            DropDownButtonWidgetExit(),
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: GestureDetector(
-                onTap: _showDatePicker,
-                child: Row(
-                  children: [
-                    Text(
-                      '${DateFormat('dd/MM/y').format(_selectedDate)}',
-                      style: TextStyles.buttonMedium,
-                    ),
-                  ],
-                ),
+          content: Column(
+            children: [
+              AppTextFormFieldWidget(
+                labelText: 'Valor em R\$',
+                labelStyle: TextStyles.blackRoboto16400,
               ),
-            )
-          ],
-        ),
-        buttonText: 'INSERIR',
-      ),
+              DropDownButtonWidgetExit(),
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: GestureDetector(
+                  onTap: _showDatePicker,
+                  child: Row(
+                    children: [
+                      Text(
+                        '${DateFormat('dd/MM/y').format(_selectedDate)}',
+                        style: TextStyles.buttonMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+          buttonText: '\u{FF0B}    INSERIR',
+          height: 50,
+          width: 123,
+          onpressed: () {}),
     );
   }
 }

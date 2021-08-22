@@ -21,7 +21,7 @@ class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
                 child: Image.asset(
                   'assets/images/refeicao.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text(
               "Refeição",
               style: TextStyles.createAccountTextStyleBottomNavigatorNumber,
@@ -38,7 +38,7 @@ class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
                 child: Image.asset(
                   'assets/images/transporte.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Transporte",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -53,7 +53,7 @@ class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
                 child: Image.asset(
                   'assets/images/viagem.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Viagem",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -68,7 +68,7 @@ class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
                 child: Image.asset(
                   'assets/images/educacao.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Educação",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -83,7 +83,7 @@ class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
                 child: Image.asset(
                   'assets/images/pagamentos.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Pagamentos",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -98,7 +98,7 @@ class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
                 child: Image.asset(
                   'assets/images/outros.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Outros",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],

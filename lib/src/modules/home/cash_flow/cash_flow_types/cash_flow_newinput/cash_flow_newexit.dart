@@ -75,9 +75,10 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
                 labelText: 'Valor em R\$',
                 labelStyle: TextStyles.blackRoboto16400,
               ),
+              SizedBox(height: 5),
               DropDownButtonWidgetExit(),
               Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 40),
                 child: GestureDetector(
                   onTap: _showDatePicker,
                   child: Row(

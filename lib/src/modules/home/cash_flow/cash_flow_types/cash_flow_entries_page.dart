@@ -30,7 +30,7 @@ class _CashFlowEntriesPageState extends State<CashFlowEntriesPage> {
                     children: [
                       Row(
                         children: [
-                          Image.asset('assets/images/pix.png'),
+                          Image.asset('assets/icons/entradas/pix.png'),
                           SizedBox(width: 8,),
                           Column(
                             children: [

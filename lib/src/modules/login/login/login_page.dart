@@ -70,6 +70,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           padding: const EdgeInsets.all(16.0),
                           child: AppTextFormFieldWidget(
                             controller: email,
+                            textInputAction: TextInputAction.go,
                             hintText: 'Insira seu e-mail',
                             labelText: 'E-mail',
                             validator: (value) =>
@@ -80,6 +81,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           padding: const EdgeInsets.all(16.0),
                           child: AppTextFormFieldWidget(
                             controller: password,
+                            textInputAction: TextInputAction.go,
                             labelText: 'Senha',
                             obscureText: true,
                             validator: (value) =>

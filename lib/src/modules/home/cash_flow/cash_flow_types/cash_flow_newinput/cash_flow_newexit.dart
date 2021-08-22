@@ -5,7 +5,7 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 
 class CashFlowNewExitPage extends StatefulWidget {
-  const CashFlowNewExitPage({ Key? key }) : super(key: key);
+  const CashFlowNewExitPage({Key? key}) : super(key: key);
 
   @override
   _CashFlowNewExitPageState createState() => _CashFlowNewExitPageState();
@@ -17,7 +17,7 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Entrada',
+          'Saída',
           style: TextStyle(
             fontFamily: 'Roboto',
             fontSize: 26,
@@ -27,23 +27,23 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
         toolbarHeight: 189,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment(-1.0, -3.0),
-                  end: Alignment(1.0, 3.0),
-                  stops: [0.05, 0.4],
-                  colors: <Color>[
-                    AppColors.ciano, 
-                    AppColors.roxo,
-                  ],
-                ),
-              ),
+            gradient: LinearGradient(
+              begin: Alignment(-1.0, -3.0),
+              end: Alignment(1.0, 3.0),
+              stops: [0.05, 0.4],
+              colors: <Color>[
+                AppColors.ciano,
+                AppColors.roxo,
+              ],
+            ),
+          ),
         ),
         centerTitle: true,
         elevation: 0.0,
-        leading: DrawerWidget(),
       ),
       body: Stack(
-        children: [Container(
+        children: [
+          Container(
             width: MediaQuery.of(context).size.width * 0.98,
             height: MediaQuery.of(context).size.height * 0.98,
             child: SingleChildScrollView(
@@ -59,10 +59,10 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
                           labelText: 'Valor em RS',
                         ),
                         AppTextFormFieldWidget(
-                          labelText: 'Tipo de entrada',
+                          labelText: 'Tipo de saída',
                         ),
                         AppTextFormFieldWidget(
-                          labelText: 'Nome da entrada',
+                          labelText: 'Nome da saída',
                         ),
                         AppTextFormFieldWidget(
                           labelText: 'Data',
@@ -84,7 +84,7 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
               buttonText: 'INSERIR',
               width: 123,
               height: 50,
-              onpressed: (){},
+              onpressed: () {},
               fontSize: 15,
             ),
           ),

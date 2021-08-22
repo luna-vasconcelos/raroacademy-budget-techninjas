@@ -27,23 +27,24 @@ class _CashFlowNewEntryPageState extends State<CashFlowNewEntryPage> {
         toolbarHeight: 189,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment(-1.0, -3.0),
-                  end: Alignment(1.0, 3.0),
-                  stops: [0.05, 0.4],
-                  colors: <Color>[
-                    AppColors.ciano, 
-                    AppColors.roxo,
-                  ],
-                ),
-              ),
+            gradient: LinearGradient(
+              begin: Alignment(-1.0, -3.0),
+              end: Alignment(1.0, 3.0),
+              stops: [0.05, 0.4],
+              colors: <Color>[
+                AppColors.ciano,
+                AppColors.roxo,
+              ],
+            ),
+          ),
         ),
         centerTitle: true,
         elevation: 0.0,
-        leading: DrawerWidget(),
+        //leading: DrawerWidget(),
       ),
       body: Stack(
-        children: [Container(
+        children: [
+          Container(
             width: MediaQuery.of(context).size.width * 0.98,
             height: MediaQuery.of(context).size.height * 0.98,
             child: SingleChildScrollView(
@@ -84,7 +85,7 @@ class _CashFlowNewEntryPageState extends State<CashFlowNewEntryPage> {
               buttonText: 'INSERIR',
               width: 123,
               height: 50,
-              onpressed: (){},
+              onpressed: () {},
               fontSize: 15,
             ),
           ),

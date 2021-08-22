@@ -83,10 +83,11 @@ class _InitialPageState
                     children: [
                       AppTextFormFieldWidget(
                         controller: email,
+                        textInputAction: TextInputAction.go,
                         hintText: 'Insira seu e-mail',
                         labelText: 'E-mail',
                         validator: (value) =>
-                        InputValidators().emailValidator(value!),
+                            InputValidators().emailValidator(value!),
                       ),
                       SizedBox(
                         height: 16,

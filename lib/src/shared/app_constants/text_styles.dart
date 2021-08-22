@@ -11,6 +11,14 @@ class TextStyles {
     color: Color(0xFF343090),
   );
 
+  static TextStyle buttonMedium = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    letterSpacing: 0.15,
+    color: Color(0xFF343090),
+  );
+
   static TextStyle blackRoboto16400 = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,

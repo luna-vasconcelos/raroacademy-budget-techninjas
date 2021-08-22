@@ -16,29 +16,36 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Saída',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 26,
-            fontWeight: FontWeight.bold,
-          ),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          padding: EdgeInsets.only(top: 20, left: 20),
+          alignment: Alignment.topLeft,
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+          iconSize: 30,
         ),
-        toolbarHeight: 189,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(-1.0, -3.0),
-              end: Alignment(1.0, 3.0),
-              stops: [0.05, 0.4],
-              colors: <Color>[
-                AppColors.ciano,
-                AppColors.roxo,
-              ],
+        title: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 95,
+          ),
+          child: Text(
+            'Saída',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 26,
+              fontWeight: FontWeight.w700,
             ),
           ),
         ),
-        centerTitle: true,
+        toolbarHeight: 165,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[AppColors.ciano, AppColors.roxo])),
+        ),
         elevation: 0.0,
       ),
       body: Stack(

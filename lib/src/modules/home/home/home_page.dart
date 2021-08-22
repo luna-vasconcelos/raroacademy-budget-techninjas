@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final transactions = [
-    Transaction(
+    TransactionModel(
       id: 't1',
       userId: '',
       value: 25.00,
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       color: AppColors.amarelo,
       icon: Icon(Icons.no_meals),
     ),
-    Transaction(
+    TransactionModel(
       id: 't2',
       userId: '',
       value: 57.30,
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       color: AppColors.verde,
       icon: Icon(Icons.bus_alert),
     ),
-    Transaction(
+    TransactionModel(
       id: 't3',
       userId: '',
       value: 316.00,

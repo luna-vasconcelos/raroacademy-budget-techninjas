@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
-import 'app_textformfield_widget.dart';
 
 class CardWidget extends StatelessWidget {
-  final String? buttonText;
+  final String buttonText;
+  final Widget content;
 
   const CardWidget({
-    Key? key, 
-    this.buttonText,
+    Key? key,
+    required this.buttonText,
+    required this.content,
   }) : super(key: key);
 
   @override
@@ -24,23 +25,7 @@ class CardWidget extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(35),
-                    child: Column(
-                      children: [
-                        // TODO componentizar formfields
-                        AppTextFormFieldWidget(
-                          labelText: 'Nome',
-                        ),
-                        AppTextFormFieldWidget(
-                          labelText: 'CPF',
-                        ),
-                        AppTextFormFieldWidget(
-                          labelText: 'E-mail',
-                        ),
-                        AppTextFormFieldWidget(
-                          labelText: 'Celular',
-                        ),
-                      ],
-                    ),
+                    child: content,
                   ),
                 ),
               ),

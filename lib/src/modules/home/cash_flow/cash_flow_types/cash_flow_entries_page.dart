@@ -31,11 +31,7 @@ class _CashFlowEntriesPageState extends State<CashFlowEntriesPage> {
                   children: [
                     Row(
                       children: [
-                        /*Image.asset(
-                          'assets/icons/entradas/pix.png',
-                          height: 20,
-                          width: 20,
-                        ),*/
+                        // Image.asset('assets/icons/entradas/pix.png'),
                         SizedBox(
                           width: 8,
                         ),
@@ -56,7 +52,7 @@ class _CashFlowEntriesPageState extends State<CashFlowEntriesPage> {
                         SizedBox(
                           width: 74,
                         ),
-                        Text('R\$ 5.000,00'),
+                        Text('R 5.000,00'),
                       ],
                     ),
                     SizedBox(
@@ -68,7 +64,7 @@ class _CashFlowEntriesPageState extends State<CashFlowEntriesPage> {
                         SizedBox(
                           width: 75,
                         ),
-                        Text('+ R\$ 2.415,00')
+                        Text('+ R 2.415,00')
                       ],
                     ),
                     SizedBox(
@@ -79,7 +75,8 @@ class _CashFlowEntriesPageState extends State<CashFlowEntriesPage> {
                       width: 48,
                       height: 48,
                       onpressed: () {
-                        Modular.to.pushNamed('/cash_flow/cash_flow_newentry');
+                        Modular.to
+                            .pushNamed('/home/cash_flow/cash_flow_newentries');
                       },
                       fontSize: 20,
                     ),

@@ -9,7 +9,6 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styl
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
-import 'create_account_user_model.dart';
 
 class CreateAccountPage extends StatefulWidget {
   CreateAccountPage({Key? key}) : super(key: key);
@@ -479,9 +478,7 @@ class _CreateAccountPageState
                             size: 18,
                           ),
                           onpressed: () {
-                            if (currentPage == 3 &&
-                                
-                                policy == true) {
+                            if (currentPage == 3 && policy == true) {
                               /*final user = User(
                                 cpf: controller.cpfCreate.value.text,
                                 name: controller.nameCreate.value.text,
@@ -491,16 +488,17 @@ class _CreateAccountPageState
                                 policyAccepted: policy!,
                               );
                               print(user);*/
-                              CreateUser().createUser(
-                                controller.nameCreate.value.text, 
-                                controller.telefoneCreate.value.text,
-                                controller.cpfCreate.value.text,
-                                policy!, 
-                                controller.emailCreate.value.text, 
-                                controller.passwordCreate.value.text).then((value) => Modular.to.popAndPushNamed(
-                                  "create_account_module/onboard"));
-                            }
-                            else {
+                              CreateUser()
+                                  .createUser(
+                                      controller.nameCreate.value.text,
+                                      controller.telefoneCreate.value.text,
+                                      controller.cpfCreate.value.text,
+                                      policy!,
+                                      controller.emailCreate.value.text,
+                                      controller.passwordCreate.value.text)
+                                  .then((value) => Modular.to.popAndPushNamed(
+                                      "create_account_module/onboard"));
+                            } else {
                               controller.pageViewController.nextPage(
                                 duration: Duration(milliseconds: 400),
                                 curve: Curves.easeInOut,

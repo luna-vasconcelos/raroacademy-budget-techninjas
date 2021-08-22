@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/drawer_menu/drawer_widget.dart';
-import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/card_widget.dart';
 
 class CashFlowNewExitPage extends StatefulWidget {
   const CashFlowNewExitPage({Key? key}) : super(key: key);
@@ -12,6 +13,24 @@ class CashFlowNewExitPage extends StatefulWidget {
 }
 
 class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
+  var _selectedDate = DateTime.now();
+
+  _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2020),
+      lastDate: DateTime.now(),
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+      setState(() {
+        _selectedDate = pickedDate;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,54 +67,32 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
         ),
         elevation: 0.0,
       ),
-      body: Stack(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 0.98,
-            height: MediaQuery.of(context).size.height * 0.98,
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-                child: Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.all(35),
-                    child: Column(
-                      children: [
-                        AppTextFormFieldWidget(
-                          labelText: 'Valor em RS',
-                        ),
-                        AppTextFormFieldWidget(
-                          labelText: 'Tipo de saída',
-                        ),
-                        AppTextFormFieldWidget(
-                          labelText: 'Nome da saída',
-                        ),
-                        AppTextFormFieldWidget(
-                          labelText: 'Data',
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.18,
-                        ),
-                      ],
+      body: CardWidget(
+        content: Column(
+          children: [
+            AppTextFormFieldWidget(
+              labelText: 'Valor em R\$',
+            ),
+            AppTextFormFieldWidget(
+              labelText: 'Tipo de saída',
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: GestureDetector(
+                onTap: _showDatePicker,
+                child: Row(
+                  children: [
+                    Text(
+                      '${DateFormat('dd/MM/y').format(_selectedDate)}',
+                      style: TextStyles.buttonMedium,
                     ),
-                  ),
+                  ],
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            top: 574,
-            left: 123,
-            child: ElevatedButtonWidget(
-              buttonText: 'INSERIR',
-              width: 123,
-              height: 50,
-              onpressed: () {},
-              fontSize: 15,
-            ),
-          ),
-        ],
+            )
+          ],
+        ),
+        buttonText: 'INSERIR',
       ),
     );
   }

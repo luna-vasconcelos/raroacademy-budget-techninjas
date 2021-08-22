@@ -1,23 +1,25 @@
 import 'dart:convert';
 
-class AppUser {
+/*class UserData {
   final String name;
   final String email;
   final String telephone;
   final String cpf;
   final String password;
   final bool policyAccepted;
+  final String uid;
 
-  AppUser({
+  UserData({
     required this.name,
     required this.email,
     required this.telephone,
     required this.cpf,
     required this.password,
     required this.policyAccepted,
+    required this.uid,
   });
 
-  AppUser copyWith({
+  UserData copyWith({
     String? name,
     String? email,
     String? telephone,
@@ -25,13 +27,14 @@ class AppUser {
     String? password,
     String? policyAccepted,
   }) {
-    return AppUser(
+    return UserData(
       name: name ?? this.name,
       email: email ?? this.email,
       telephone: telephone ?? this.telephone,
       cpf: cpf ?? this.cpf,
       password: password ?? this.password,
-      policyAccepted: false,
+      policyAccepted: false, 
+      uid: '',
     );
   }
 
@@ -46,30 +49,32 @@ class AppUser {
     };
   }
 
-  factory AppUser.fromMap(Map<String, dynamic> map) {
-    return AppUser(
+  factory UserData.fromMap(Map<String, dynamic> map) {
+    return UserData(
         name: map['name'],
         email: map['email'],
         telephone: map['telephone'],
         cpf: map['cpf'],
         password: map['password'],
-        policyAccepted: map['policyAccepted']);
+        policyAccepted: map['policyAccepted'], 
+        uid: '');
   }
 
   String toJson() => json.encode(toMap());
 
-  factory AppUser.fromJson(String source) => AppUser.fromMap(json.decode(source));
+  factory UserData.fromJson(String source) =>
+      UserData.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'AppUser(name: $name, email: $email, telephone: $telephone, cpf: $cpf, password: $password, policyAccepted: $policyAccepted)';
+    return 'UserData(name: $name, email: $email, telephone: $telephone, cpf: $cpf, password: $password, policyAccepted: $policyAccepted)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is AppUser &&
+    return other is UserData &&
         other.name == name &&
         other.email == email &&
         other.telephone == telephone &&
@@ -85,4 +90,18 @@ class AppUser {
         cpf.hashCode ^
         password.hashCode;
   }
+}*/
+
+class UserData{
+  final String? uid;
+  final String? name;
+  final String? telephone;
+  final bool? policy;
+
+  UserData({ 
+    this.uid, 
+    this.telephone, 
+    this.policy, 
+    this.name, 
+  });
 }

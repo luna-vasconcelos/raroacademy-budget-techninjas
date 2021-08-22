@@ -20,7 +20,7 @@ class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
                 child: Image.asset(
                   'assets/images/pix.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text(
               "Pix",
               style: TextStyles.createAccountTextStyleBottomNavigatorNumber,
@@ -37,7 +37,7 @@ class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
                 child: Image.asset(
                   'assets/images/dinheiro.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Dinheiro",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -52,7 +52,7 @@ class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
                 child: Image.asset(
                   'assets/images/doc.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Doc",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -67,7 +67,7 @@ class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
                 child: Image.asset(
                   'assets/images/ted.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Ted",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -82,7 +82,7 @@ class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
                 child: Image.asset(
                   'assets/images/boleto.png',
                 )),
-            SizedBox(width: 4),
+            SizedBox(width: 8),
             Text("Boleto",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
@@ -97,7 +97,7 @@ class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
       child: DropdownButtonFormField(
           decoration: InputDecoration(
             contentPadding: EdgeInsets.only(top: 48),
-            labelText: "Tipo de Saida",
+            labelText: "Tipo de Entrada",
             labelStyle: TextStyles.black12Roboto400,
           ),
           dropdownColor: Colors.white,

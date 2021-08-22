@@ -5,6 +5,7 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_color
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
 import 'initial_page_controller.dart';
 
 class InitialPage extends StatefulWidget {
@@ -84,8 +85,8 @@ class _InitialPageState
                         controller: email,
                         hintText: 'Insira seu e-mail',
                         labelText: 'E-mail',
-                        //validator: (value) =>
-                        //InputValidators().emailValidator(value),
+                        validator: (value) =>
+                        InputValidators().emailValidator(value!),
                       ),
                       SizedBox(
                         height: 16,

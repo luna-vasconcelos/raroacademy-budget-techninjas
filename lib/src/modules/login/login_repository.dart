@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -7,7 +5,7 @@ class LoginRepository {
   FirebaseAuth auth = FirebaseAuth.instance;
 
   // signup
-
+  
 
   // login-signin
   Future<String?> login(String email, String password) async {
@@ -28,5 +26,4 @@ class LoginRepository {
   void signOut() {
     auth.signOut().then((value) => Modular.to.pushReplacementNamed('/'));
   }
-
 }

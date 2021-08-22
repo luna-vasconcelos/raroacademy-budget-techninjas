@@ -490,16 +490,15 @@ class _CreateAccountPageState
                                 telephone: controller.telefoneCreate.value.text,
                                 policyAccepted: policy!,
                               );
-                              print(user);
-                              Modular.to.popAndPushNamed(
-                                "create_account_module/onboard");*/
+                              print(user);*/
                               CreateUser().createUser(
                                 controller.nameCreate.value.text, 
                                 controller.telefoneCreate.value.text,
                                 controller.cpfCreate.value.text,
                                 policy!, 
                                 controller.emailCreate.value.text, 
-                                controller.passwordCreate.value.text);
+                                controller.passwordCreate.value.text).then((value) => Modular.to.popAndPushNamed(
+                                  "create_account_module/onboard"));
                             }
                             else {
                               controller.pageViewController.nextPage(

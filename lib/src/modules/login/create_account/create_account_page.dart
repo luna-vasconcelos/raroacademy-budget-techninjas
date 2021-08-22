@@ -2,6 +2,7 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flux_validator_dart/flux_validator_dart.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_repository.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
@@ -23,12 +24,16 @@ class _CreateAccountPageState
   final _emailfocusNode = FocusNode();
   final _telefonefocusNode = FocusNode();
   final _cpffocusNode = FocusNode();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey1 = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey2 = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey4 = GlobalKey<FormState>();
+
   bool? policy;
   int currentPage = 0;
   @override
   void initState() {
     super.initState();
+
     _namefocusNode.addListener(() {
       setState(() {});
     });
@@ -50,6 +55,16 @@ class _CreateAccountPageState
     _telefonefocusNode.dispose();
     _cpffocusNode.dispose();
     super.dispose();
+  }
+
+  bool isvalid() {
+    if (_formKey1.currentState!.validate() &&
+        _formKey2.currentState!.validate() &&
+        _formKey4.currentState!.validate()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -102,24 +117,27 @@ class _CreateAccountPageState
                     Container(
                       padding: EdgeInsets.only(top: 419, left: 48, right: 48),
                       child: Form(
-                        key: _formKey,
+                        key: _formKey1,
                         child: Column(
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                focusNode: _namefocusNode,
-                                textInputAction: TextInputAction.next,
-                                floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
-                                controller: controller.nameCreate,
-                                labelText:
-                                    _namefocusNode.hasFocus ? "Nome" : "",
-                                hintText: _namefocusNode.hasFocus ? "" : "Nome",
-                                //validator: (value) =>
-                              ),
+                                  autovalidateMode: AutovalidateMode.disabled,
+                                  focusNode: _namefocusNode,
+                                  textInputAction: TextInputAction.next,
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
+                                  controller: controller.nameCreate,
+                                  labelText:
+                                      _namefocusNode.hasFocus ? "Nome" : "",
+                                  hintText:
+                                      _namefocusNode.hasFocus ? "" : "Nome",
+                                  validator: (value) {
+                                    if (value != null && value.length < 6) {
+                                      return ("Insira um nome Válido");
+                                    }
+                                  }),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(16.0),
@@ -189,7 +207,7 @@ class _CreateAccountPageState
                     Container(
                       padding: EdgeInsets.only(top: 419, left: 48, right: 48),
                       child: Form(
-                        key: _formKey,
+                        key: _formKey2,
                         child: Column(
                           children: [
                             Padding(
@@ -203,23 +221,28 @@ class _CreateAccountPageState
                                   FilteringTextInputFormatter.digitsOnly,
                                   TelefoneInputFormatter(),
                                 ],
-                                validator: (value) => InputValidators()
-                                    .emailValidator(value ?? ""),
+                                validator: (value) {
+                                  if (Validator.phone(value)) {
+                                    return ("Insira um telefone válido");
+                                  }
+                                },
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: AppTextFormFieldWidget(
-                                controller: controller.cpfCreate,
-                                labelText: 'CPF',
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                  CpfInputFormatter(),
-                                ],
-                                validator: (value) =>
-                                    InputValidators().passwordValidator(value!),
-                              ),
+                                  controller: controller.cpfCreate,
+                                  labelText: 'CPF',
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.digitsOnly,
+                                    CpfInputFormatter(),
+                                  ],
+                                  validator: (value) {
+                                    if (Validator.cpf(value)) {
+                                      return ("Insira um CPF valido");
+                                    }
+                                  }),
                             ),
                           ],
                         ),
@@ -377,7 +400,7 @@ class _CreateAccountPageState
                     Container(
                       padding: EdgeInsets.only(top: 419, left: 48, right: 48),
                       child: Form(
-                        key: _formKey,
+                        key: _formKey4,
                         child: Column(
                           children: [
                             Padding(
@@ -386,7 +409,12 @@ class _CreateAccountPageState
                                   controller: controller.passwordCreate,
                                   hintText: 'Crie uma senha',
                                   validator: (value) {
-                                    InputValidators().passwordValidator(value!);
+                                    if (value == null) {
+                                      return ("Digite uma senha valida");
+                                    } else {
+                                      InputValidators()
+                                          .passwordValidator(value);
+                                    }
                                   }),
                             ),
                             Padding(
@@ -399,9 +427,6 @@ class _CreateAccountPageState
                                     if (value !=
                                         controller.passwordCreate.text) {
                                       return "As senhas não coincidem";
-                                    } else {
-                                      InputValidators()
-                                          .passwordValidator(value!);
                                     }
                                   }),
                             ),
@@ -478,8 +503,43 @@ class _CreateAccountPageState
                             size: 18,
                           ),
                           onpressed: () {
-                            if (currentPage == 3 && policy == true) {
-                              /*final user = User(
+                            if (currentPage == 0 &&
+                                _formKey1.currentState!.validate()) {
+                              controller.pageViewController.nextPage(
+                                duration: Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                              );
+                            } else if (currentPage == 1 &&
+                                _formKey2.currentState!.validate()) {
+                              controller.pageViewController.nextPage(
+                                duration: Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                              );
+                            } else if (currentPage == 2 && policy == null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        'Aceite as Termos de Uso para continuar')),
+                              );
+                            } else if (currentPage == 2 && policy == true) {
+                              controller.pageViewController.nextPage(
+                                duration: Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                              );
+                            } else if (currentPage == 3 &&
+                                _formKey4.currentState!.validate()) {
+                              // CreateUser()
+                              //     .createUser(
+                              //         controller.nameCreate.value.text,
+                              //         controller.telefoneCreate.value.text,
+                              //         controller.cpfCreate.value.text,
+                              //         policy!,
+                              //         controller.emailCreate.value.text,
+                              //         controller.passwordCreate.value.text)
+                              //     .then((value) => Modular.to.popAndPushNamed(
+                              //         "create_account_module/onboard"));
+                            }
+                            /*final user = User(
                                 cpf: controller.cpfCreate.value.text,
                                 name: controller.nameCreate.value.text,
                                 email: controller.emailCreate.value.text,
@@ -488,22 +548,6 @@ class _CreateAccountPageState
                                 policyAccepted: policy!,
                               );
                               print(user);*/
-                              CreateUser()
-                                  .createUser(
-                                      controller.nameCreate.value.text,
-                                      controller.telefoneCreate.value.text,
-                                      controller.cpfCreate.value.text,
-                                      policy!,
-                                      controller.emailCreate.value.text,
-                                      controller.passwordCreate.value.text)
-                                  .then((value) => Modular.to.popAndPushNamed(
-                                      "create_account_module/onboard"));
-                            } else {
-                              controller.pageViewController.nextPage(
-                                duration: Duration(milliseconds: 400),
-                                curve: Curves.easeInOut,
-                              );
-                            }
                           }),
                     )
                   ],

@@ -33,7 +33,7 @@ class DrawerWidget extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 25, top: 45),
                         child: Text(
-                          "$userName",
+                          "Olá $userName!",
                           style: TextStyles.titledrawer,
                         ),
                       )),

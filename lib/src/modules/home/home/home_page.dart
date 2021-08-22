@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               drawer: DrawerWidget(),
               appBar: AppBar(
                 title: Text(
-                  '$userName',
+                  'Olá $userName!',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 24,

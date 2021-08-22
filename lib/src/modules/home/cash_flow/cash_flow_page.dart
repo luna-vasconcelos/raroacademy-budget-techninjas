@@ -19,12 +19,15 @@ class _CashFlowPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'R 1.104,53',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 24,
-            fontWeight: FontWeight.w400,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 35),
+          child: Text(
+            'R\$ 1.104,53',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 24,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
         toolbarHeight: 189,
@@ -39,6 +42,8 @@ class _CashFlowPageState
         centerTitle: true,
         elevation: 0.0,
         leading: IconButton(
+          padding: EdgeInsets.only(top: 20, left: 20),
+          alignment: Alignment.topLeft,
           onPressed: () {
             Modular.to.navigate('/home');
           },
@@ -52,14 +57,16 @@ class _CashFlowPageState
             padding: const EdgeInsets.only(
               left: 36,
               right: 36,
-              bottom: 29,
+              bottom: 20,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
                   onPressed: () {
-                    controller.pageController.jumpTo(0,);
+                    controller.pageController.jumpTo(
+                      0,
+                    );
                   },
                   child: Text(
                     'Entradas',
@@ -96,7 +103,7 @@ class _CashFlowPageState
                 ),
                 TextButton(
                   onPressed: () {
-                    controller.pageController.jumpTo(
+                    controller.pageController.jumpToPage(
                       2,
                     );
                   },

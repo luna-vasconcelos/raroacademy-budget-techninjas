@@ -73,9 +73,7 @@ class _CashFlowNewExitPageState extends State<CashFlowNewExitPage> {
           children: [
             AppTextFormFieldWidget(
               labelText: 'Valor em R\$',
-            ),
-            SizedBox(
-              height: 24,
+              labelStyle: TextStyles.blackRoboto16400,
             ),
             DropDownButtonWidgetExit(),
             Padding(

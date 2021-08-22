@@ -4,6 +4,7 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_color
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/card_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/dropdown_button_widget_in.dart';
 
 class CashFlowNewEntryPage extends StatefulWidget {
   const CashFlowNewEntryPage({Key? key}) : super(key: key);
@@ -72,12 +73,13 @@ class _CashFlowNewEntryPageState extends State<CashFlowNewEntryPage> {
           children: [
             AppTextFormFieldWidget(
               labelText: 'Valor em R\$',
+              labelStyle: TextStyles.blackRoboto16400,
             ),
-            AppTextFormFieldWidget(
-              labelText: 'Tipo de entrada',
-            ),
+            DropDownButtonWidgetIn(),
+            SizedBox(height: 24),
             AppTextFormFieldWidget(
               labelText: 'Nome da entrada',
+              labelStyle: TextStyles.blackRoboto16400,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 30),

@@ -1,105 +1,89 @@
 import 'package:flutter/material.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 
-class DropDownButtonWidgetExit extends StatefulWidget {
-  const DropDownButtonWidgetExit({Key? key}) : super(key: key);
+class DropDownButtonWidgetIn extends StatefulWidget {
+  const DropDownButtonWidgetIn({Key? key}) : super(key: key);
 
   @override
-  _DropDownButtonWidgetExitState createState() =>
-      _DropDownButtonWidgetExitState();
+  _DropDownButtonWidgetInState createState() => _DropDownButtonWidgetInState();
 }
 
-class _DropDownButtonWidgetExitState extends State<DropDownButtonWidgetExit> {
+class _DropDownButtonWidgetInState extends State<DropDownButtonWidgetIn> {
   final List<DropdownMenuItem<String>> _categories = <DropdownMenuItem<String>>[
     DropdownMenuItem(
-        value: "Refeição",
+        value: "Pix",
         child: Row(
           children: [
             SizedBox(
                 width: 24,
                 height: 24,
                 child: Image.asset(
-                  'assets/images/refeicao.png',
+                  'assets/images/pix.png',
                 )),
             SizedBox(width: 4),
             Text(
-              "Refeição",
+              "Pix",
               style: TextStyles.createAccountTextStyleBottomNavigatorNumber,
             ),
           ],
         )),
     DropdownMenuItem(
-        value: "Transporte",
+        value: "Dinheiro",
         child: Row(
           children: [
             SizedBox(
                 width: 24,
                 height: 24,
                 child: Image.asset(
-                  'assets/images/transporte.png',
+                  'assets/images/dinheiro.png',
                 )),
             SizedBox(width: 4),
-            Text("Transporte",
+            Text("Dinheiro",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
         )),
     DropdownMenuItem(
-        value: "Viagem",
+        value: "Doc",
         child: Row(
           children: [
             SizedBox(
                 width: 24,
                 height: 24,
                 child: Image.asset(
-                  'assets/images/viagem.png',
+                  'assets/images/doc.png',
                 )),
             SizedBox(width: 4),
-            Text("Viagem",
+            Text("Doc",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
         )),
     DropdownMenuItem(
-        value: "Educação",
+        value: "Ted",
         child: Row(
           children: [
             SizedBox(
                 width: 24,
                 height: 24,
                 child: Image.asset(
-                  'assets/images/educacao.png',
+                  'assets/images/ted.png',
                 )),
             SizedBox(width: 4),
-            Text("Educação",
+            Text("Ted",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
         )),
     DropdownMenuItem(
-        value: "Pagamentos",
+        value: "Boleto",
         child: Row(
           children: [
             SizedBox(
                 width: 24,
                 height: 24,
                 child: Image.asset(
-                  'assets/images/pagamentos.png',
+                  'assets/images/boleto.png',
                 )),
             SizedBox(width: 4),
-            Text("Pagamentos",
-                style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
-          ],
-        )),
-    DropdownMenuItem(
-        value: "Outros",
-        child: Row(
-          children: [
-            SizedBox(
-                width: 24,
-                height: 24,
-                child: Image.asset(
-                  'assets/images/outros.png',
-                )),
-            SizedBox(width: 4),
-            Text("Outros",
+            Text("Boleto",
                 style: TextStyles.createAccountTextStyleBottomNavigatorNumber),
           ],
         )),

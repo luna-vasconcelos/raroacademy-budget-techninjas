@@ -24,11 +24,9 @@ class _InitialPageState
   }
 
   final _formKey = GlobalKey<FormState>();
-
+  TextEditingController email = new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TextEditingController email = new TextEditingController();
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.background,
@@ -102,7 +100,8 @@ class _InitialPageState
                             height: 36,
                             onpressed: () {
                               if (_formKey.currentState!.validate()) {
-                                Modular.to.pushReplacementNamed('/login');
+                                Modular.to.pushReplacementNamed('/login',
+                                    arguments: email.value);
                               }
                             },
                           ),

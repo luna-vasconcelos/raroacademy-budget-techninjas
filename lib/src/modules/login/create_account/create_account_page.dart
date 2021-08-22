@@ -492,9 +492,8 @@ class _CreateAccountPageState
                               );
 
                               print(user);
-                              // Modular.to.popAndPushNamed(
-                              //   "create_account_module/onboard");
-
+                              Modular.to.popAndPushNamed(
+                                  "create_account_module/onboard");
                             } else {
                               controller.pageViewController.nextPage(
                                 duration: Duration(milliseconds: 400),

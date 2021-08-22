@@ -46,6 +46,12 @@ class TextStyles {
     fontSize: 24,
     color: Colors.white,
   );
+  static TextStyle buttomwhite = TextStyle(
+      fontFamily: "Roboto",
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      color: Colors.white,
+      letterSpacing: 0.4);
 
   static TextStyle titledrawer = TextStyle(
     fontFamily: "Roboto",
@@ -58,6 +64,13 @@ class TextStyles {
     fontFamily: "Roboto",
     fontWeight: FontWeight.w400,
     fontSize: 48,
+    color: AppColors.ciano,
+  );
+
+  static TextStyle cyanw700Roboto = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w700,
+    fontSize: 40,
     color: AppColors.ciano,
   );
 

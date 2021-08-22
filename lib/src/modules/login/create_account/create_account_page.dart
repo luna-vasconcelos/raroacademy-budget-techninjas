@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_controller.dart';
+import 'package:raroacademy_budget_techninjas/src/modules/login/create_account/create_account_repository.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
-
 import 'create_account_user_model.dart';
 
 class CreateAccountPage extends StatefulWidget {
@@ -480,9 +480,9 @@ class _CreateAccountPageState
                           ),
                           onpressed: () {
                             if (currentPage == 3 &&
-                                _formKey.currentState!.validate() &&
+                                
                                 policy == true) {
-                              final user = User(
+                              /*final user = User(
                                 cpf: controller.cpfCreate.value.text,
                                 name: controller.nameCreate.value.text,
                                 email: controller.emailCreate.value.text,
@@ -490,11 +490,17 @@ class _CreateAccountPageState
                                 telephone: controller.telefoneCreate.value.text,
                                 policyAccepted: policy!,
                               );
-
-                              print(user);
-                              Modular.to.popAndPushNamed(
-                                  "create_account_module/onboard");
-                            } else {
+                              print(user);*/
+                              CreateUser().createUser(
+                                controller.nameCreate.value.text, 
+                                controller.telefoneCreate.value.text,
+                                controller.cpfCreate.value.text,
+                                policy!, 
+                                controller.emailCreate.value.text, 
+                                controller.passwordCreate.value.text).then((value) => Modular.to.popAndPushNamed(
+                                  "create_account_module/onboard"));
+                            }
+                            else {
                               controller.pageViewController.nextPage(
                                 duration: Duration(milliseconds: 400),
                                 curve: Curves.easeInOut,

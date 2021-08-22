@@ -5,7 +5,7 @@ import 'package:raroacademy_budget_techninjas/src/shared/models/transaction_mode
 import 'package:intl/intl.dart';
 
 class TransactionsListCard extends StatelessWidget {
-  final List<Transaction> transactions;
+  final List<TransactionModel> transactions;
 
   TransactionsListCard(
     this.transactions,

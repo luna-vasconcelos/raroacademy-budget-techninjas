@@ -2,30 +2,30 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 
-class Transaction {
-  final String id;
-  final String userId;
+class TransactionModel {
+  final String? id;
+  final String? userId;
   final String? title;
   final double value;
   final DateTime date;
   final String category;
   final String type;
-  final color;
-  final icon;
+  final Color? color;
+  final Icon? icon;
 
-  Transaction({
-    required this.id,
-    required this.userId,
+  TransactionModel({
+    this.id,
+    this.userId,
     this.title,
     required this.value,
     required this.date,
     required this.category,
     required this.type,
-    required this.icon,
-    required this.color,
+    this.icon,
+    this.color,
   });
 
-  Transaction copyWith({
+  TransactionModel copyWith({
     String? id,
     String? userId,
     String? title,
@@ -35,7 +35,7 @@ class Transaction {
     String? type,
     Icon? icon,
   }) {
-    return Transaction(
+    return TransactionModel(
       id: id ?? this.id,
       userId: userId ?? this.userId,
       title: title ?? this.title,
@@ -57,12 +57,12 @@ class Transaction {
       'date': date.millisecondsSinceEpoch,
       'category': category,
       'type': type,
-      'icon': icon.toMap(),
+      'icon': icon,
     };
   }
 
-  factory Transaction.fromMap(Map<String, dynamic> map) {
-    return Transaction(
+  factory TransactionModel.fromMap(Map<String, dynamic> map) {
+    return TransactionModel(
         id: map['id'],
         userId: map['userId'],
         title: map['title'],
@@ -76,19 +76,19 @@ class Transaction {
 
   String toJson() => json.encode(toMap());
 
-  factory Transaction.fromJson(String source) =>
-      Transaction.fromMap(json.decode(source));
+  factory TransactionModel.fromJson(String source) =>
+      TransactionModel.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Transaction(id: $id, userId: $userId, title: $title, value: $value, date: $date, category: $category, type: $type, icon: $icon)';
+    return 'TransactionModel(id: $id, userId: $userId, title: $title, value: $value, date: $date, category: $category, type: $type, icon: $icon)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Transaction &&
+    return other is TransactionModel &&
         other.id == id &&
         other.userId == userId &&
         other.title == title &&

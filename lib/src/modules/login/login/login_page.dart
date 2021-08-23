@@ -7,6 +7,7 @@ import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styl
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/app_textformfield_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/elevated_buttom_widget.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/validators/validators.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/visiblePasswordWidget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   final _formKey = GlobalKey<FormState>();
+  bool _passwordVisible = true;
+
   @override
   void initState() {
     // store.login(email: email, password: password);
@@ -83,7 +86,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                             controller: password,
                             textInputAction: TextInputAction.go,
                             labelText: 'Senha',
-                            obscureText: true,
+                            obscureText: _passwordVisible,
+                            suffixIcon: Icon(Icons.visibility_rounded),
                             validator: (value) =>
                                 InputValidators().passwordValidator(value!),
                           ),

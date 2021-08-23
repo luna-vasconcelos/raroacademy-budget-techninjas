@@ -30,16 +30,6 @@ class _DropDownButtonMonthsWidgetState
           BoxShadow(color: Colors.black26, offset: Offset(0, 6), blurRadius: 10)
         ],
         color: Colors.lightBlue.shade700,
-        // gradient: LinearGradient(
-        //   begin: Alignment(-1.0, -3.0),
-        //   end: Alignment(2.0, 4.0),
-        //   stops: [0.2, 0.4],
-        //   colors: [
-        //     Color(0xFF44C2FD),
-        //     Color(0xFF343090),
-        //   ],
-        // ),
-        //color: Colors.white,
         borderRadius: BorderRadius.circular(24),
       ),
       width: 110,

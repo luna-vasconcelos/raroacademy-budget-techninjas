@@ -8,7 +8,6 @@
 //   String? tittle;
 //   double? value;
 //   DateTime? date;
-
 //   final cardlist = [
 //     Transaction(
 //       id: Random().nextDouble().toString(),

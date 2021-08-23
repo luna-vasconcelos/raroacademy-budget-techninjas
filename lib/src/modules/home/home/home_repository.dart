@@ -31,7 +31,7 @@ class HomeRepository {
     );
   }
 
-  Stream<List<UserData>> get brews {
+  Stream<List<UserData>> get user {
     return users.snapshots().map(_userListFromSnapshot);
   }
 
@@ -64,15 +64,29 @@ class HomeRepository {
   }
 
   Stream<List<TransactionModel>> get transactionsModel {
-    return transactions
-      .snapshots()
-      .map(_transactionListFromSnapshot);
+    return transactions.snapshots().map(_transactionListFromSnapshot);
   }
 
-  Stream<TransactionModel> get transactionData {
-    return transactions
-      .doc(userUid)
-      .snapshots()
-      .map(_transactionModelFromSnapshot);
-  }
+  // Stream<TransactionModel> get transactionData {
+  //   return transactions
+  //       .doc(userUid)
+  //       .snapshots()
+  //       .map(_transactionModelFromSnapshot);
+  // }
+
+  // // READ transações que funciona
+  // Stream<List<TransactionModel>> getTransactions() {
+  //   try {
+  //     return transactions
+  //         .where('user_uid', isEqualTo: userUid)
+  //         .orderBy('createAt', descending: true)
+  //         .snapshots()
+  //         .map((e) => e.docs
+  //         .map((item) => TransactionModel.fromMap(item.data())
+  //                 .copyWith(transactionId: item.id))
+  //             .toList());
+  //   } catch (e) {
+  //     throw e;
+  //   }
+  // }
 }

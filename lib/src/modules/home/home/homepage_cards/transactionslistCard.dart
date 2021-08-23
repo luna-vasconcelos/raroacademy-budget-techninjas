@@ -102,7 +102,7 @@ class TransactionsListCard extends StatelessWidget {
                             ),
                             trailing: FittedBox(
                               child: Text(
-                                'R\$ ${tr.value.toStringAsFixed(2).replaceAll('.', ',')}',
+                                'R\$ ${tr.value!.toStringAsFixed(2).replaceAll('.', ',')}',
                                 style: TextStyles.subtitle1,
                               ),
                             ),

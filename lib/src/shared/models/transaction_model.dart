@@ -1,12 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 
 class TransactionModel {
   final String? id;
   final String? userId;
   final String? title;
-  final double value;
+  final double? value;
   final DateTime date;
   final String category;
   final String type;
@@ -77,7 +76,7 @@ class TransactionModel {
   String toJson() => json.encode(toMap());
 
   factory TransactionModel.fromJson(String source) =>
-      TransactionModel.fromMap(json.decode(source));
+  TransactionModel.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -110,4 +109,23 @@ class TransactionModel {
         type.hashCode ^
         icon.hashCode;
   }
+
+  // TransactionModel.fromJson(Map<String, Object?> json)
+  //     : this(
+  //         value: json['value']! as double,
+  //         title: json['title']! as String,
+  //         category: json['category']! as String,
+  //         date: json['date']! as DateTime,
+  //         type: json['type']! as String,
+  //       );
+
+  // Map<String, Object?> toJson() {
+  //   return {
+  //     'value': value,
+  //     'title': title,
+  //     'category': category,
+  //     'date': date,
+  //     'type': type,
+  //   };
+  // }
 }

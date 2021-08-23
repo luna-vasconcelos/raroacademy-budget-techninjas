@@ -1,16 +1,12 @@
-# raroacademy_budget_techninjas
+## Budget - Raro Academy ##
 
-A new Flutter project.
+# Grupo Tech Ninjas #
 
-## Getting Started
+Aplicação de gerenciamento de finanças(entrada e saída) para o projeto final de conclusão do curso de Flutter da Raro Academy.
 
-This project is a starting point for a Flutter application.
+O aplicativo foi criado com base no layout apresentado a partir de um modelo do Figma, e utilizamos em sua construção o Flutter para criação das telas e suas respectivas lógicas e o Firebase para o armazenamento de dados ,a autenticação do usuário e as finanças inseridas, tivemos a utilização de diversos packages e o projeto foi feito com arquitetura do Modular.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Integrantes do grupo
+Letícia Ricette, Ronaldo Ferreira e Luna Costa.

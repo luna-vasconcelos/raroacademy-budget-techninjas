@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/text_styles.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/dropdownbuttom_months_home_widget.dart';
 
 class InputAndOutputCard extends StatelessWidget {
   final String balance;
@@ -37,11 +38,7 @@ class InputAndOutputCard extends StatelessWidget {
                 balance,
                 style: TextStyles.blackw400Roboto,
               ),
-              trailing: Icon(
-                Icons.remove_red_eye,
-                color: AppColors.roxo,
-                size: 28,
-              ),
+              trailing: DropDownButtonHomeWidget(),
             ),
           ),
           Padding(

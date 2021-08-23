@@ -5,6 +5,8 @@ import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_fl
 import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_entries_page.dart';
 import 'package:raroacademy_budget_techninjas/src/modules/home/cash_flow/cash_flow_types/cash_flow_exits_page.dart';
 import 'package:raroacademy_budget_techninjas/src/shared/app_constants/app_colors.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/dropdownbuttom_months_home_widget.dart';
+import 'package:raroacademy_budget_techninjas/src/shared/app_widgets/dropdownbutton_months_widget.dart';
 
 class CashFlowPage extends StatefulWidget {
   const CashFlowPage({Key? key}) : super(key: key);
@@ -50,7 +52,15 @@ class _CashFlowPageState
           icon: Icon(Icons.arrow_back),
         ),
         actions: [
-          Icon(Icons.arrow_drop_down),
+          Stack(
+            alignment: AlignmentDirectional.topEnd,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20, right: 10),
+                child: DropDownButtonMonthsWidget(),
+              ),
+            ],
+          ),
         ],
         bottom: PreferredSize(
           child: Padding(
